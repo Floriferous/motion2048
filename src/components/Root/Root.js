@@ -1,30 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import GameContainer from '../../containers/GameContainer';
-
-const styles = {
-  div: {
-    height: '100%',
-    width: '100%',
-    background: '#3e739e',
-    color: 'white',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-};
+import Home from '../Home';
 
 const Root = ({ rootState, onGameStart, onGameEnd }) => {
   if (rootState === 'game') {
     return <GameContainer onGameEnd={onGameEnd} />;
+  } else if (rootState === 'home') {
+    return <Home onGameStart={onGameStart} />;
   }
-
-  return (
-    <div style={styles.div}>
-      {rootState} <button onClick={onGameStart}>Start!</button>
-    </div>
-  );
 };
 
 Root.propTypes = {

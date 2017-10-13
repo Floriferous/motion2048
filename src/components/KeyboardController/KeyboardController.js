@@ -29,12 +29,16 @@ export default class KeyboardController extends Component {
   };
 
   render() {
-    const { children } = this.props;
     return <div />;
   }
 }
 
 KeyboardController.propTypes = {
-  onEscape: PropTypes.func.isRequired,
-  onEnter: PropTypes.func.isRequired,
+  onEscape: PropTypes.func,
+  onEnter: PropTypes.func,
+};
+
+KeyboardController.defaultProps = {
+  onEscape: () => {},
+  onEnter: () => {},
 };
