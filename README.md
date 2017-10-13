@@ -1,11 +1,11 @@
-#Motion 2048
+# Motion 2048 #
 
-##Installation
+## Installation ##
 
 * clone directory
 * run `yarn install`
 * run `yarn start`
 
-##Testing
+## Testing ##
 
 Run `yarn test`
