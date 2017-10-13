@@ -11,6 +11,8 @@ const gameState = (state = initialState, action) => {
           y: 0,
         },
       ];
+    case 'RESET_GAME':
+      return initialState;
     default:
       return state;
   }
