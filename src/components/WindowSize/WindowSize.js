@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+
+const styles = {
+  div: { width: '100%', height: '100%' },
+};
 
 export default class WindowSize extends Component {
   constructor(props) {
@@ -28,8 +31,6 @@ export default class WindowSize extends Component {
     const children = React.Children.map(this.props.children, child =>
       React.cloneElement(child, { windowWidth, windowHeight }),
     );
-    return <div style={{ flex: 1 }}>{children}</div>;
+    return <div style={styles.div}>{children}</div>;
   }
 }
-
-WindowSize.propTypes = {};

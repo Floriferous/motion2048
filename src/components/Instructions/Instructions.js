@@ -8,6 +8,7 @@ const styles = {
     alignItems: 'center',
     height: 50,
     color: colors.text,
+    zIndex: 1,
   },
 };
 
@@ -15,6 +16,7 @@ const Instructions = () => {
   return (
     <h3 style={styles.div}>
       <span>Enter: Add a box</span>
+      <span>Arrows: Change direction</span>
       <span>ESC: End game</span>
     </h3>
   );
