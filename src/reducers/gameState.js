@@ -28,15 +28,10 @@ const groupByColumn = boxes => {
 };
 
 export const getNewBoxDetails = (boxes, id) => {
-  console.log(boxes);
   let firstIncompleteRow = 0;
 
   if (!boxes || boxes.length === 0) {
-    return {
-      id,
-      x: 0,
-      y: 0,
-    };
+    return { id, x: 0, y: 0 };
   }
 
   // group boxes by row
@@ -104,11 +99,7 @@ const setDirection = (box, array, newDirection) => {
     throw Error('invalid new direction');
   }
 
-  return {
-    ...box,
-    x: newX,
-    y: newY,
-  };
+  return { ...box, x: newX, y: newY };
 };
 
 const gameState = (state = initialState, action) => {
