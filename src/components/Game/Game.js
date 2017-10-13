@@ -6,6 +6,7 @@ import BoxList from '../BoxList';
 import Score from '../Score';
 import Instructions from '../Instructions';
 import colors from '../../config/colors';
+import constants from '../../config/constants';
 
 const styles = {
   main: {
@@ -18,15 +19,23 @@ const styles = {
   },
 };
 
-const Game = ({ boxes, onAddBox, onGameEnd }) => {
+const handleAddBox = (boxCount, onAddBox, onGameEnd) => {
+  if (boxCount < constants.BOXES_PER_ROW * constants.BOXES_PER_ROW) {
+    onAddBox(boxCount);
+  } else {
+    onGameEnd();
+  }
+};
+
+const Game = ({ boxes, onAddBox, onGameEnd, ...otherProps }) => {
   return (
     <main style={styles.main}>
       <KeyboardController
         onEscape={onGameEnd}
         // this will create a conflict when boxes are deleted
-        onEnter={() => onAddBox(boxes.length)}
+        onEnter={() => handleAddBox(boxes.length, onAddBox, onGameEnd)}
       />
-      <BoxList boxes={boxes} />
+      <BoxList boxes={boxes} {...otherProps} />
       <Score score={0} />
       <Instructions />
     </main>

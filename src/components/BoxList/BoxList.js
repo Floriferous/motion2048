@@ -2,9 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import BoxListTransition from './BoxListTransition';
 
-const BoxList = ({ boxes }) => (
+const BoxList = ({ boxes, ...otherProps }) => (
   <BoxListTransition
     boxes={boxes.map(box => ({ key: '' + box.id, data: { ...box } }))}
+    {...otherProps}
   />
 );
 

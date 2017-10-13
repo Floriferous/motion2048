@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import Box from '../Box';
 import { TransitionMotion, spring, presets } from 'react-motion';
@@ -44,7 +44,7 @@ const willLeave = () => ({
   opacity: spring(0),
 });
 
-const BoxListTransition = ({ boxes }) => (
+const BoxListTransition = ({ boxes, ...otherProps }) => (
   <TransitionMotion
     defaultStyles={getDefaultStyles(boxes)}
     styles={getStyles(boxes)}
@@ -54,7 +54,7 @@ const BoxListTransition = ({ boxes }) => (
     {boxStyles => (
       <div style={styles.div}>
         {boxStyles.map(({ key, style, data }) => (
-          <Box key={key} style={style} {...data} />
+          <Box key={key} style={style} {...data} {...otherProps} />
         ))}
       </div>
     )}
