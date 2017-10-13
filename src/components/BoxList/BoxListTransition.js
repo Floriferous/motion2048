@@ -8,65 +8,60 @@ const styles = {
   div: {
     height: '100%',
     width: '100%',
+    display: 'flex',
+    flexWrap: 'wrap',
+    alignContent: 'flex-start',
   },
 };
 
-export default class BoxListTransition extends Component {
-  getDefaultStyles = () =>
-    this.props.boxes.map(box => ({
+const getDefaultStyles = boxes =>
+  boxes.map(box => ({
+    ...box,
+    style: { height: 0, width: 0, opacity: 1 },
+  }));
+
+const getStyles = boxes =>
+  boxes.map((box, i) => {
+    return {
       ...box,
-      style: { height: 0, width: 0, opacity: 1 },
-    }));
-
-  getStyles = () => {
-    const { boxes } = this.props;
-    return boxes.map((box, i) => {
-      return {
-        ...box,
-        style: {
-          height: spring(constants.BOX_SIZE, presets.gentle),
-          width: spring(constants.BOX_SIZE, presets.gentle),
-          opacity: spring(1, presets.gentle),
-        },
-      };
-    });
-  };
-
-  willEnter() {
-    return {
-      height: 0,
-      width: 0,
-      opacity: 0.8,
+      style: {
+        height: spring(constants.BOX_SIZE, presets.gentle),
+        width: spring(constants.BOX_SIZE, presets.gentle),
+        opacity: spring(1, presets.gentle),
+      },
     };
-  }
+  });
 
-  willLeave() {
-    return {
-      height: spring(0),
-      opacity: spring(0),
-    };
-  }
+const willEnter = () => ({
+  height: 0,
+  width: 0,
+  opacity: 0,
+});
 
-  render() {
-    return (
-      <TransitionMotion
-        defaultStyles={this.getDefaultStyles()}
-        styles={this.getStyles()}
-        willLeave={this.willLeave}
-        willEnter={this.willEnter}
-      >
-        {boxStyles => (
-          <div style={styles.div}>
-            {boxStyles.map(({ key, style, data: { id } }) => (
-              <Box key={key} style={style} />
-            ))}
-          </div>
-        )}
-      </TransitionMotion>
-    );
-  }
-}
+const willLeave = () => ({
+  height: spring(0),
+  opacity: spring(0),
+});
+
+const BoxListTransition = ({ boxes }) => (
+  <TransitionMotion
+    defaultStyles={getDefaultStyles(boxes)}
+    styles={getStyles(boxes)}
+    willLeave={willLeave}
+    willEnter={willEnter}
+  >
+    {boxStyles => (
+      <div style={styles.div}>
+        {boxStyles.map(({ key, style, data: { id } }) => (
+          <Box key={key} style={style} />
+        ))}
+      </div>
+    )}
+  </TransitionMotion>
+);
 
 BoxListTransition.propTypes = {
   boxes: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
+
+export default BoxListTransition;

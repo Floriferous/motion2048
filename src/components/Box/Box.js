@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import colors from '../../config/colors';
 
 const styles = {
   box: {
     margin: 8,
-    background: '#f8f9fa',
+    background: colors.box,
   },
 };
 
