@@ -11,6 +11,7 @@ const styles = {
     display: 'flex',
     flexWrap: 'wrap',
     alignContent: 'flex-start',
+    position: 'relative',
   },
 };
 
@@ -52,8 +53,8 @@ const BoxListTransition = ({ boxes }) => (
   >
     {boxStyles => (
       <div style={styles.div}>
-        {boxStyles.map(({ key, style, data: { id } }) => (
-          <Box key={key} style={style} />
+        {boxStyles.map(({ key, style, data }) => (
+          <Box key={key} style={style} {...data} />
         ))}
       </div>
     )}
