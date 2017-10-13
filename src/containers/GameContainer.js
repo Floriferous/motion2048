@@ -8,8 +8,11 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  onAddBox: id => dispatch(addBox(id)),
-  onSetDirection: newDirection => dispatch(setDirection(newDirection)),
+  onAddBox: () => dispatch(addBox()),
+  onSetDirection: newDirection => {
+    dispatch(setDirection(newDirection));
+    dispatch(addBox());
+  },
 });
 
 const GameContainer = connect(mapStateToProps, mapDispatchToProps)(Game);

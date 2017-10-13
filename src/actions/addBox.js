@@ -1,6 +1,3 @@
-const addBox = id => ({
-  type: 'ADD_BOX',
-  id,
-});
+const addBox = () => ({ type: 'ADD_BOX' });
 
 export default addBox;

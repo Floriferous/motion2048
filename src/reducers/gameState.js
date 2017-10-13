@@ -27,11 +27,11 @@ const groupByColumn = boxes => {
   return boxColumns;
 };
 
-export const getNewBoxDetails = (boxes, id) => {
+export const getNewBoxDetails = boxes => {
   let firstIncompleteRow = 0;
 
   if (!boxes || boxes.length === 0) {
-    return { id, x: 0, y: 0 };
+    return { id: 0, x: 0, y: 0 };
   }
 
   // group boxes by row
@@ -49,7 +49,7 @@ export const getNewBoxDetails = (boxes, id) => {
 
   // Return a box with its new coordinates
   return {
-    id,
+    id: boxes.length,
     x: boxRows[firstIncompleteRow] ? boxRows[firstIncompleteRow].length : 0,
     y: firstIncompleteRow,
   };
@@ -107,7 +107,7 @@ const setDirection = (box, array, newDirection) => {
 const gameState = (state = initialState, action) => {
   switch (action.type) {
     case 'ADD_BOX':
-      return [...state, getNewBoxDetails(state, action.id)];
+      return [...state, getNewBoxDetails(state)];
     case 'SET_DIRECTION':
       return state.map((box, i, array) =>
         setDirection(box, array, action.newDirection),

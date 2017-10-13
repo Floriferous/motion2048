@@ -19,9 +19,10 @@ const styles = {
   },
 };
 
+// FIXME should end game as well on setDirection
 const handleAddBox = (boxCount, onAddBox, onGameEnd) => {
   if (boxCount < constants.BOXES_PER_ROW * constants.BOXES_PER_ROW) {
-    onAddBox(boxCount);
+    onAddBox();
   } else {
     onGameEnd();
   }
