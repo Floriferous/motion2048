@@ -62,37 +62,39 @@ const setDirection = (box, array, newDirection) => {
   if (newDirection === 'UP' || newDirection === 'DOWN') {
     const columnNb = box.x;
     const column = groupByColumn(array)[columnNb];
-    if (newDirection === 'UP') {
+    const currentIndex = column.findIndex(b => b.id === box.id);
+    if (column.length === constants.BOXES_PER_ROW) {
+      // Do nothing, position is already ok
+    } else if (newDirection === 'UP') {
       if (column[0].y === 0) {
         // Do nothing, position is already ok
       } else {
-        const firstY = column[0].y;
-        newY = box.y - firstY;
+        newY = currentIndex;
       }
     } else if (newDirection === 'DOWN') {
       if (column[0].y === constants.BOXES_PER_ROW - 1) {
         // Do nothing, position is already ok
       } else {
-        const lastY = column[column.length - 1].y;
-        newY = constants.BOXES_PER_ROW - (lastY - box.y);
+        newY = constants.BOXES_PER_ROW - (column.length - currentIndex);
       }
     }
   } else if (newDirection === 'LEFT' || newDirection === 'RIGHT') {
     const rowNb = box.y;
     const row = groupByRow(array)[rowNb];
-    if (newDirection === 'LEFT') {
+    const currentIndex = row.findIndex(b => b.id === box.id);
+    if (row.length === constants.BOXES_PER_ROW) {
+      // Do nothing, position is already ok
+    } else if (newDirection === 'LEFT') {
       if (row[0].x === 0) {
         // Do nothing, position is already ok
       } else {
-        const firstX = row[0].x;
-        newX = box.x - firstX;
+        newX = currentIndex;
       }
     } else if (newDirection === 'RIGHT') {
       if (row[0].x === constants.BOXES_PER_ROW - 1) {
         // Do nothing, position is already ok
       } else {
-        const lastX = row[row.length - 1].x;
-        newX = constants.BOXES_PER_ROW - (lastX - box.x);
+        newX = constants.BOXES_PER_ROW - (row.length - currentIndex);
       }
     }
   } else {
