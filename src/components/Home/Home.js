@@ -35,12 +35,16 @@ const Home = ({ onGameStart }) => {
   return (
     <div style={styles.div}>
       <KeyboardController onEnter={onGameStart} />
-      <h1 style={styles.title}>Motion 2048</h1>
-      <h4 style={styles.subtitle}>by Florian Bienefelt</h4>
+      <h1 className="animated fadeInLeft" style={styles.title}>
+        Motion 2048
+      </h1>
+      <h4 className="animated fadeInRight" style={styles.subtitle}>
+        by Florian Bienefelt
+      </h4>
       <button
         onClick={onGameStart}
         style={styles.button}
-        className="animated jackInTheBox"
+        className="animated fadeInUp"
       >
         <span className="animated infinite fadeIn">Start Game (↩)</span>
       </button>
