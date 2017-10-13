@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Root from '../components/Root';
-import exitGame from '../actions/exitGame';
+import endGame from '../actions/endGame';
 import startGame from '../actions/startGame';
 
 const mapStateToProps = state => ({
@@ -9,7 +9,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   onGameStart: () => dispatch(startGame()),
-  onGameExit: () => dispatch(exitGame()),
+  onGameEnd: () => dispatch(endGame()),
 });
 
 const RootContainer = connect(mapStateToProps, mapDispatchToProps)(Root);

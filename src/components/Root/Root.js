@@ -15,9 +15,9 @@ const styles = {
   },
 };
 
-const Root = ({ rootState, onGameStart, onGameExit }) => {
+const Root = ({ rootState, onGameStart, onGameEnd }) => {
   if (rootState === 'game') {
-    return <GameContainer onGameExit={onGameExit} />;
+    return <GameContainer onGameEnd={onGameEnd} />;
   }
 
   return (
@@ -27,6 +27,10 @@ const Root = ({ rootState, onGameStart, onGameExit }) => {
   );
 };
 
-Root.propTypes = {};
+Root.propTypes = {
+  rootState: PropTypes.string.isRequired,
+  onGameStart: PropTypes.func.isRequired,
+  onGameEnd: PropTypes.func.isRequired,
+};
 
 export default Root;
