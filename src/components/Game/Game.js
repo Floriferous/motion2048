@@ -27,13 +27,20 @@ const handleAddBox = (boxCount, onAddBox, onGameEnd) => {
   }
 };
 
-const Game = ({ boxes, onAddBox, onGameEnd, ...otherProps }) => {
+const Game = ({
+  boxes,
+  onAddBox,
+  onGameEnd,
+  onSetDirection,
+  ...otherProps
+}) => {
   return (
     <main style={styles.main}>
       <KeyboardController
         onEscape={onGameEnd}
         // this will create a conflict when boxes are deleted
         onEnter={() => handleAddBox(boxes.length, onAddBox, onGameEnd)}
+        onArrow={arrow => onSetDirection(arrow)}
       />
       <BoxList boxes={boxes} {...otherProps} />
       <Score score={0} />
@@ -46,6 +53,7 @@ Game.propTypes = {
   boxes: PropTypes.arrayOf(PropTypes.object).isRequired,
   onAddBox: PropTypes.func.isRequired,
   onGameEnd: PropTypes.func.isRequired,
+  onSetDirection: PropTypes.func.isRequired,
 };
 
 export default connect()(Game);
