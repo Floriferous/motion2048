@@ -37,8 +37,12 @@ const Home = ({ onGameStart }) => {
       <KeyboardController onEnter={onGameStart} />
       <h1 style={styles.title}>Motion 2048</h1>
       <h4 style={styles.subtitle}>by Florian Bienefelt</h4>
-      <button onClick={onGameStart} style={styles.button}>
-        Start Game
+      <button
+        onClick={onGameStart}
+        style={styles.button}
+        className="animated jackInTheBox"
+      >
+        <span className="animated infinite fadeIn">Start Game (↩)</span>
       </button>
     </div>
   );
