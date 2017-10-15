@@ -24,9 +24,16 @@ const styles = {
 const handleAddBox = (boxCount, onAddBox, onGameEnd) => {
   if (boxCount < constants.BOXES_PER_ROW * constants.BOXES_PER_ROW) {
     onAddBox();
+    return true;
   } else {
     onGameEnd();
+    return false;
   }
+};
+
+const handleSetDirection = (onSetDirection, arrow, ...rest) => {
+  onSetDirection(arrow);
+  handleAddBox(...rest);
 };
 
 const Game = ({
@@ -43,7 +50,14 @@ const Game = ({
         onEscape={onGameEnd}
         // this will create a conflict when boxes are deleted
         onEnter={() => handleAddBox(boxes.length, onAddBox, onGameEnd)}
-        onArrow={arrow => onSetDirection(arrow)}
+        onArrow={direction =>
+          handleSetDirection(
+            onSetDirection,
+            direction,
+            boxes.length,
+            onAddBox,
+            onGameEnd,
+          )}
       />
       <GameFrame>
         <BoxList boxes={boxes} {...otherProps} />
