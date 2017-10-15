@@ -11,7 +11,7 @@ const mapDispatchToProps = dispatch => ({
   onAddBox: () => dispatch(addBox()),
   onSetDirection: newDirection => {
     dispatch(setDirection(newDirection));
-    dispatch(addBox());
+    // dispatch(addBox());
   },
 });
 

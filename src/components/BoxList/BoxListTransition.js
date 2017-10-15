@@ -15,14 +15,17 @@ const styles = {
   },
 };
 
-const getDefaultStyles = boxes =>
-  boxes.map(box => ({
+const getDefaultStyles = boxes => {
+  console.log('getDefaultStyles', boxes);
+  return boxes.map(box => ({
     ...box,
     style: { height: 0, width: 0, opacity: 1 },
   }));
+};
 
-const getStyles = boxes =>
-  boxes.map((box, i) => {
+const getStyles = boxes => {
+  console.log('getStyles', boxes);
+  return boxes.map((box, i) => {
     return {
       ...box,
       style: {
@@ -32,6 +35,7 @@ const getStyles = boxes =>
       },
     };
   });
+};
 
 const willEnter = () => ({
   height: 0,
