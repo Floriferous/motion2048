@@ -15,9 +15,10 @@ const getNewBoxDetails = (boxes = []) => {
   let firstIncompleteRow = 0;
   let newX = 0;
   let id = getUid();
+  const initialValue = 100;
 
   if (!boxes || boxes.length === 0) {
-    return { id, x: 0, y: 0 };
+    return { id, x: 0, y: 0, value: initialValue };
   }
 
   // group boxes by row
@@ -51,6 +52,7 @@ const getNewBoxDetails = (boxes = []) => {
     id,
     x: newX,
     y: firstIncompleteRow,
+    value: initialValue,
   };
 };
 

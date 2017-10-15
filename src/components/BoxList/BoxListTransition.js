@@ -23,14 +23,14 @@ const getDefaultStyles = boxes => {
   }));
 };
 
-const getStyles = boxes => {
+const getStyles = (boxes, boxSize) => {
   console.log('getStyles', boxes);
   return boxes.map((box, i) => {
     return {
       ...box,
       style: {
-        height: spring(constants.BOX_SIZE, presets.gentle),
-        width: spring(constants.BOX_SIZE, presets.gentle),
+        height: spring(boxSize, presets.gentle),
+        width: spring(boxSize, presets.gentle),
         opacity: spring(1, presets.gentle),
       },
     };
@@ -48,10 +48,10 @@ const willLeave = () => ({
   opacity: spring(0),
 });
 
-const BoxListTransition = ({ boxes, ...otherProps }) => (
+const BoxListTransition = ({ boxes, boxSize, ...otherProps }) => (
   <TransitionMotion
     defaultStyles={getDefaultStyles(boxes)}
-    styles={getStyles(boxes)}
+    styles={getStyles(boxes, boxSize)}
     willLeave={willLeave}
     willEnter={willEnter}
   >

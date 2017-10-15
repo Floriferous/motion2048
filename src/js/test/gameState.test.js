@@ -7,15 +7,18 @@ describe('getNewBoxDetails', () => {
   let boxes = [];
 
   it('returns the x=0 and y=0 if an empty array is provided', () => {
-    expect(getNewBoxDetails(boxes, {})).to.deep.equal({ id: 0, x: 0, y: 0 });
+    expect(getNewBoxDetails(boxes, {}).x).to.equal(0);
+    expect(getNewBoxDetails(boxes, {}).y).to.equal(0);
   });
 
   it('returns the x=0 and y=0 if nothing', () => {
-    expect(getNewBoxDetails()).to.deep.equal({ id: 0, x: 0, y: 0 });
+    expect(getNewBoxDetails().x).to.deep.equal(0);
+    expect(getNewBoxDetails().y).to.deep.equal(0);
   });
 
   it('returns a correct 7th box', () => {
     boxes = new Array(6).fill(undefined).map((_, i) => ({ x: i, y: 0 }));
-    expect(getNewBoxDetails(boxes, {})).to.deep.equal({ id: 6, x: 0, y: 1 });
+    expect(getNewBoxDetails(boxes, {}).x).to.deep.equal(0);
+    expect(getNewBoxDetails(boxes, {}).y).to.deep.equal(1);
   });
 });

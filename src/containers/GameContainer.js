@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import addBox from '../actions/addBox';
+import mergeBoxes from '../actions/mergeBoxes';
 import setDirection from '../actions/setDirection';
 
 const mapStateToProps = ({ gameState, gameSettings }) => ({
@@ -10,6 +11,7 @@ const mapStateToProps = ({ gameState, gameSettings }) => ({
 const mapDispatchToProps = dispatch => ({
   onAddBox: () => dispatch(addBox()),
   onSetDirection: newDirection => {
+    dispatch(mergeBoxes(newDirection));
     dispatch(setDirection(newDirection));
     // dispatch(addBox());
   },

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import SettingsContainer from '../../containers/SettingsContainer';
 import colors from '../../config/colors';
+import constants from '../../config/constants';
 
 class GameFrame extends Component {
   componentDidMount() {
@@ -20,6 +21,13 @@ class GameFrame extends Component {
 
     onChangeSetting('gameHeight', height);
     onChangeSetting('gameWidth', width);
+
+    // Multiply max by 0.8 to add some spacing between each box
+    const boxSize = Math.min(
+      height * 0.8 / constants.BOXES_PER_ROW,
+      width * 0.8 / constants.BOXES_PER_ROW,
+    );
+    onChangeSetting('boxSize', Math.round(boxSize));
   };
 
   render() {

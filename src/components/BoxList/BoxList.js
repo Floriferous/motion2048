@@ -3,18 +3,17 @@ import PropTypes from 'prop-types';
 import BoxListTransition from './BoxListTransition';
 import constants from '../../config/constants';
 
-const getPosition = (i, max) => {
+const getPosition = (i, max, boxSize) => {
   const space =
-    (max - constants.BOXES_PER_ROW * constants.BOX_SIZE) /
-    (constants.BOXES_PER_ROW - 1);
+    (max - constants.BOXES_PER_ROW * boxSize) / (constants.BOXES_PER_ROW - 1);
   const spaceSize = i * space;
-  const boxSize = i * constants.BOX_SIZE;
-  return boxSize + spaceSize;
+  const boxesSize = i * boxSize;
+  return boxesSize + spaceSize;
 };
 
 const BoxList = ({
   boxes,
-  settings: { gameWidth, gameHeight },
+  settings: { gameWidth, gameHeight, boxSize },
   ...otherProps
 }) => (
   <BoxListTransition
@@ -22,10 +21,11 @@ const BoxList = ({
       key: '' + box.id,
       data: {
         ...box,
-        top: getPosition(box.y, gameHeight),
-        left: getPosition(box.x, gameWidth),
+        top: getPosition(box.y, gameHeight, boxSize),
+        left: getPosition(box.x, gameWidth, boxSize),
       },
     }))}
+    boxSize={boxSize}
     {...otherProps}
   />
 );

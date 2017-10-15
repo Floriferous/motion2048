@@ -7,27 +7,34 @@ const styles = {
   box: {
     position: 'absolute',
     background: colors.box,
+    color: colors.white,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 };
 
-const Box = ({ style, x, y, top, left, windowWidth, windowHeight }) => {
+const Box = ({ style, x, y, top, left, value }) => {
   return (
     <Motion
-      defaultStyle={{ top: 0, left: 0 }}
+      defaultStyle={{ top: 0, left: 0, value: 0 }}
       style={{
         top: spring(top, presets.stiff),
         left: spring(left, presets.stiff),
+        value: spring(value, presets.stiff),
       }}
     >
-      {value => (
+      {motionValues => (
         <div
           style={{
             ...styles.box,
             ...style,
-            top: value.top,
-            left: value.left,
+            top: motionValues.top,
+            left: motionValues.left,
           }}
-        />
+        >
+          <h2 style={{ margin: 0 }}>{Math.round(motionValues.value)}</h2>
+        </div>
       )}
     </Motion>
   );
