@@ -5,7 +5,7 @@ import Game from '../Game';
 import Home from '../Home';
 import WindowSize from '../WindowSize';
 
-const Root = ({ appState, onGameStart, onGameEnd }) => {
+const Root = ({ appState, onGameStart, onGameEnd, highscore }) => {
   if (appState === 'game') {
     return (
       <WindowSize>
@@ -13,7 +13,7 @@ const Root = ({ appState, onGameStart, onGameEnd }) => {
       </WindowSize>
     );
   } else if (appState === 'home') {
-    return <Home onGameStart={onGameStart} />;
+    return <Home onGameStart={onGameStart} highscore={highscore} />;
   }
 };
 

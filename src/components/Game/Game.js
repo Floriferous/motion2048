@@ -22,12 +22,12 @@ const styles = {
 
 class Game extends Component {
   handleAddBox = () => {
-    const { boxes, onAddBox, onGameEnd } = this.props;
+    const { boxes, onAddBox, onGameEnd, score } = this.props;
     if (boxes.length < constants.BOXES_PER_ROW * constants.BOXES_PER_ROW) {
       onAddBox();
       return true;
     } else {
-      onGameEnd();
+      onGameEnd(score);
       return false;
     }
   };
@@ -52,7 +52,7 @@ class Game extends Component {
     return (
       <main style={styles.main}>
         <KeyboardController
-          onEscape={onGameEnd}
+          onEscape={() => onGameEnd(score)}
           onEnter={this.handleAddBox}
           onArrow={this.handleSetDirection}
         />

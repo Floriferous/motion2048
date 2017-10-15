@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import colors from '../../config/colors';
 import KeyboardController from '../KeyboardController';
+import Highscores from '../Highscores';
 
 const styles = {
   div: {
@@ -31,7 +32,7 @@ const styles = {
   },
 };
 
-const Home = ({ onGameStart }) => {
+const Home = ({ onGameStart, highscore }) => {
   return (
     <div style={styles.div}>
       <KeyboardController onEnter={onGameStart} />
@@ -48,6 +49,8 @@ const Home = ({ onGameStart }) => {
       >
         <span className="animated infinite fadeIn">Start Game (↩)</span>
       </button>
+
+      <Highscores highscore={highscore} />
     </div>
   );
 };
