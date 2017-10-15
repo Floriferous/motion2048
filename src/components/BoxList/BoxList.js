@@ -12,14 +12,18 @@ const getPosition = (i, max) => {
   return boxSize + spaceSize;
 };
 
-const BoxList = ({ boxes, windowHeight, windowWidth, ...otherProps }) => (
+const BoxList = ({
+  boxes,
+  settings: { gameWidth, gameHeight },
+  ...otherProps
+}) => (
   <BoxListTransition
     boxes={boxes.map(box => ({
       key: '' + box.id,
       data: {
         ...box,
-        top: getPosition(box.y, windowHeight),
-        left: getPosition(box.x, windowWidth),
+        top: getPosition(box.y, gameHeight),
+        left: getPosition(box.x, gameWidth),
       },
     }))}
     {...otherProps}

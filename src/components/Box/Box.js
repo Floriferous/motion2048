@@ -15,8 +15,8 @@ const Box = ({ style, x, y, top, left, windowWidth, windowHeight }) => {
     <Motion
       defaultStyle={{ top: 0, left: 0 }}
       style={{
-        top: spring(top, presets.gentle),
-        left: spring(left, presets.gentle),
+        top: spring(top, presets.stiff),
+        left: spring(left, presets.stiff),
       }}
     >
       {value => (

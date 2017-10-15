@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import GameContainer from '../../containers/GameContainer';
+import RootContainer from '../../containers/RootContainer';
+import Game from '../Game';
 import Home from '../Home';
 import WindowSize from '../WindowSize';
 
@@ -8,7 +9,7 @@ const Root = ({ rootState, onGameStart, onGameEnd }) => {
   if (rootState === 'game') {
     return (
       <WindowSize>
-        <GameContainer onGameEnd={onGameEnd} />
+        <Game onGameEnd={onGameEnd} />
       </WindowSize>
     );
   } else if (rootState === 'home') {
@@ -22,4 +23,4 @@ Root.propTypes = {
   onGameEnd: PropTypes.func.isRequired,
 };
 
-export default Root;
+export default RootContainer(Root);

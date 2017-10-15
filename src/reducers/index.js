@@ -1,10 +1,12 @@
 import { combineReducers } from 'redux';
-import gameState from './gameState';
 import rootState from './rootState';
+import gameState from './gameState';
+import gameSettings from './gameSettings';
 
 const app = combineReducers({
   rootState,
   gameState,
+  gameSettings,
 });
 
 export default app;

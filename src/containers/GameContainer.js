@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
-import Game from '../components/Game';
 import addBox from '../actions/addBox';
 import setDirection from '../actions/setDirection';
 
-const mapStateToProps = state => ({
-  boxes: state.gameState,
+const mapStateToProps = ({ gameState, gameSettings }) => ({
+  boxes: gameState,
+  settings: gameSettings,
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -15,6 +15,7 @@ const mapDispatchToProps = dispatch => ({
   },
 });
 
-const GameContainer = connect(mapStateToProps, mapDispatchToProps)(Game);
+const GameContainer = component =>
+  connect(mapStateToProps, mapDispatchToProps)(component);
 
 export default GameContainer;

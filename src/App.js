@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import './css/App.css';
 import './css/animate.css';
 import MyProvider from './components/MyProvider';
-import RootContainer from './containers/RootContainer';
+import Root from './components/Root';
 
 class App extends Component {
   render() {
     return (
       <MyProvider>
-        <RootContainer />
+        <Root />
       </MyProvider>
     );
   }

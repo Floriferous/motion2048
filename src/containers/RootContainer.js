@@ -1,5 +1,4 @@
 import { connect } from 'react-redux';
-import Root from '../components/Root';
 import endGame from '../actions/endGame';
 import startGame from '../actions/startGame';
 import resetGame from '../actions/resetGame';
@@ -16,6 +15,7 @@ const mapDispatchToProps = dispatch => ({
   },
 });
 
-const RootContainer = connect(mapStateToProps, mapDispatchToProps)(Root);
+const RootContainer = component =>
+  connect(mapStateToProps, mapDispatchToProps)(component);
 
 export default RootContainer;

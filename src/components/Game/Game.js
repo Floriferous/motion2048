@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
+import GameContainer from '../../containers/GameContainer';
 import KeyboardController from '../KeyboardController';
 import BoxList from '../BoxList';
 import Score from '../Score';
 import Instructions from '../Instructions';
 import colors from '../../config/colors';
 import constants from '../../config/constants';
+import GameFrame from './GameFrame';
 
 const styles = {
   main: {
@@ -35,6 +36,7 @@ const Game = ({
   onSetDirection,
   ...otherProps
 }) => {
+  console.log(otherProps);
   return (
     <main style={styles.main}>
       <KeyboardController
@@ -43,7 +45,9 @@ const Game = ({
         onEnter={() => handleAddBox(boxes.length, onAddBox, onGameEnd)}
         onArrow={arrow => onSetDirection(arrow)}
       />
-      <BoxList boxes={boxes} {...otherProps} />
+      <GameFrame>
+        <BoxList boxes={boxes} {...otherProps} />
+      </GameFrame>
       <Score score={0} />
       <Instructions />
     </main>
@@ -57,4 +61,4 @@ Game.propTypes = {
   onSetDirection: PropTypes.func.isRequired,
 };
 
-export default connect()(Game);
+export default GameContainer(Game);
