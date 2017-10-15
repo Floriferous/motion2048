@@ -3,6 +3,7 @@ import endGame from '../actions/endGame';
 import startGame from '../actions/startGame';
 import resetGame from '../actions/resetGame';
 import addHighscore from '../actions/addHighscore';
+import setScore from '../actions/setScore';
 
 const mapStateToProps = ({ appState, highscore }) => ({
   appState,
@@ -12,9 +13,10 @@ const mapStateToProps = ({ appState, highscore }) => ({
 const mapDispatchToProps = dispatch => ({
   onGameStart: () => dispatch(startGame()),
   onGameEnd: score => {
+    dispatch(addHighscore(score));
     dispatch(endGame());
     dispatch(resetGame());
-    dispatch(addHighscore(score));
+    dispatch(setScore(0));
   },
 });
 
