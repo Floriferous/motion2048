@@ -47,7 +47,7 @@ const Home = ({ onGameStart, highscore }) => {
         style={styles.button}
         className="animated fadeInUp"
       >
-        <span className="animated infinite fadeIn">Start Game (↩)</span>
+        <span className="animated infinite fadeOut">Start Game (↩)</span>
       </button>
 
       <Highscores highscore={highscore} />
