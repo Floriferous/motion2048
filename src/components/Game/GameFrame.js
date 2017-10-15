@@ -44,7 +44,7 @@ const styles = {
   div: {
     flex: 1,
     position: 'relative',
-    margin: 32,
+    margin: 64,
     background: colors.white,
     boxShadow: '0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)',
   },

@@ -4,7 +4,7 @@ import mergeBoxes from '../actions/mergeBoxes';
 import setDirection from '../actions/setDirection';
 
 const mapStateToProps = ({ gameState, gameSettings }) => ({
-  boxes: gameState,
+  boxes: gameState.boxes,
   settings: gameSettings,
 });
 

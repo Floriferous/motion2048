@@ -4,7 +4,7 @@ import startGame from '../actions/startGame';
 import resetGame from '../actions/resetGame';
 
 const mapStateToProps = state => ({
-  rootState: state.rootState,
+  appState: state.appState,
 });
 
 const mapDispatchToProps = dispatch => ({

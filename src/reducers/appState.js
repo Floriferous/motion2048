@@ -1,6 +1,6 @@
 const initialState = 'home';
 
-const rootState = (state = initialState, action) => {
+const appState = (state = initialState, action) => {
   switch (action.type) {
     case 'START_GAME':
       return 'game';
@@ -11,4 +11,4 @@ const rootState = (state = initialState, action) => {
   }
 };
 
-export default rootState;
+export default appState;

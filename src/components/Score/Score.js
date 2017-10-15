@@ -5,8 +5,8 @@ import colors from '../../config/colors';
 const styles = {
   h2: {
     position: 'absolute',
-    top: 4,
-    left: 8,
+    top: 16,
+    left: 16,
     margin: 0,
     color: colors.white,
   },

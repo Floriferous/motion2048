@@ -1,12 +1,12 @@
 import { combineReducers } from 'redux';
-import rootState from './rootState';
+import appState from './appState';
 import gameState from './gameState';
 import gameSettings from './gameSettings';
 
-const app = combineReducers({
-  rootState,
+const rootReducer = combineReducers({
+  appState,
   gameState,
   gameSettings,
 });
 
-export default app;
+export default rootReducer;

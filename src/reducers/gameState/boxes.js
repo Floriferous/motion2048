@@ -1,9 +1,9 @@
-import getNewBoxDetails from '../js/getNewBoxDetails';
-import setDirection from '../js/setDirection';
-import mergeBoxes from '../js/mergeBoxes';
+import getNewBoxDetails from '../../js/getNewBoxDetails';
+import setDirection from '../../js/setDirection';
+import mergeBoxes from '../../js/mergeBoxes';
 const initialState = [];
 
-const gameState = (state = initialState, action) => {
+const boxes = (state = initialState, action) => {
   switch (action.type) {
     case 'ADD_BOX':
       return [...state, getNewBoxDetails(state)];
@@ -13,11 +13,9 @@ const gameState = (state = initialState, action) => {
       return state.map((box, i, array) =>
         setDirection(box, array, action.newDirection),
       );
-    case 'RESET_GAME':
-      return initialState;
     default:
       return state;
   }
 };
 
-export default gameState;
+export default boxes;
