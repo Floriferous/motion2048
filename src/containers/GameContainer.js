@@ -15,7 +15,6 @@ const mapDispatchToProps = dispatch => ({
   onSetDirection: newDirection => {
     dispatch(mergeBoxes(newDirection));
     dispatch(setDirection(newDirection));
-    // dispatch(addBox());
   },
   onSetScore: score => dispatch(setScore(score)),
 });
