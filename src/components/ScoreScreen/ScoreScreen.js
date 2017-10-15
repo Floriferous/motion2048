@@ -7,7 +7,7 @@ import Instructions from './Instructions';
 
 const ScoreScreen = ({ highscore, onGoHome, onGameStart }) => {
   return (
-    <div style={styles.div}>
+    <div style={styles.div} className="animated fadeIn">
       <KeyboardController onEscape={onGoHome} onEnter={onGameStart} />
       <h1 style={styles.score} className="animated bounceInDown">
         <MotionValue
