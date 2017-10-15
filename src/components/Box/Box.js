@@ -14,10 +14,10 @@ const styles = {
   },
 };
 
-const Box = ({ style, x, y, top, left, value }) => {
+const Box = ({ style, x, y, top, left, value, gameWidth, gameHeight }) => {
   return (
     <Motion
-      defaultStyle={{ top: 0, left: 0, value: 0 }}
+      defaultStyle={{ top: gameHeight / 2, left: gameWidth / 2, value: 0 }}
       style={{
         top: spring(top, presets.stiff),
         left: spring(left, presets.stiff),
