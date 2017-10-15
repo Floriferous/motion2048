@@ -7,9 +7,10 @@ export const merge = (boxes, axis, toStart) => {
   }
 
   return subArrays
-    .map(subArray =>
-      subArray.reduce((prev, box, index, array) => {
-        if (prev.length > 0) {
+    .map(subArray => {
+      let hasMerged = false;
+      return subArray.reduce((prev, box, index, array) => {
+        if (!hasMerged && prev.length > 0) {
           // Check if previous box has the same value
           const previousBox = prev[prev.length - 1];
           if (previousBox.value === box.value) {
@@ -18,6 +19,7 @@ export const merge = (boxes, axis, toStart) => {
               ...previousBox,
               value: previousBox.value * 2,
             };
+            hasMerged = true;
           } else {
             prev.push(box);
           }
@@ -25,8 +27,8 @@ export const merge = (boxes, axis, toStart) => {
           prev.push(box);
         }
         return prev;
-      }, []),
-    )
+      }, []);
+    })
     .map(subArray => (toStart ? subArray : subArray.reverse()))
     .reduce((a, b) => a.concat(b), []);
 };

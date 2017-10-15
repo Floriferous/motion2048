@@ -4,10 +4,10 @@ import PropTypes from 'prop-types';
 const Highscores = ({ highscore }) => {
   if (highscore.length) {
     return (
-      <div style={{ marginTop: 40 }}>
+      <div style={{ marginTop: 40 }} className="animated jackInTheBox">
         <h3>Highscores</h3>
         <ul style={{ display: 'flex', flexDirection: 'column' }}>
-          {highscore.sort((a, b) => a.score - b.score).map((score, i) => (
+          {highscore.sort((a, b) => b.score - a.score).map((score, i) => (
             <li key={i}>
               {i + 1}. {score.score}
             </li>
