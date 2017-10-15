@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Motion, spring, presets } from 'react-motion';
 import colors from '../../config/colors';
 
 const styles = {
@@ -14,7 +15,16 @@ const styles = {
 
 const Score = ({ score }) => (
   <h2 style={styles.h2}>
-    <small>Score:</small> {score}
+    <Motion
+      defaultStyle={{ score: 0 }}
+      style={{ score: spring(score, presets.wobbly) }}
+    >
+      {value => (
+        <span>
+          <small>Score:</small> {Math.round(value.score)}
+        </span>
+      )}
+    </Motion>
   </h2>
 );
 

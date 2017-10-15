@@ -31,7 +31,6 @@ class GameFrame extends Component {
   };
 
   render() {
-    console.log(this.props);
     return (
       <div id="gameFrame" style={styles.div}>
         {this.props.children}

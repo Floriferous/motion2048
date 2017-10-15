@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Box from '../Box';
 import { TransitionMotion, spring, presets } from 'react-motion';
-import constants from '../../config/constants';
 
 const styles = {
   div: {
@@ -16,7 +15,6 @@ const styles = {
 };
 
 const getDefaultStyles = boxes => {
-  console.log('getDefaultStyles', boxes);
   return boxes.map(box => ({
     ...box,
     style: { height: 0, width: 0, opacity: 1 },
@@ -24,7 +22,6 @@ const getDefaultStyles = boxes => {
 };
 
 const getStyles = (boxes, boxSize) => {
-  console.log('getStyles', boxes);
   return boxes.map((box, i) => {
     return {
       ...box,

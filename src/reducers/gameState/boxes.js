@@ -13,6 +13,8 @@ const boxes = (state = initialState, action) => {
       return state.map((box, i, array) =>
         setDirection(box, array, action.newDirection),
       );
+    case 'RESET_GAME':
+      return initialState;
     default:
       return state;
   }

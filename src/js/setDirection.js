@@ -39,7 +39,7 @@ const setDirection = (box, boxes, newDirection) => {
     case 'RIGHT':
       return rearrangeBox(box, boxes, 'y', false);
     default:
-      throw new Error('invalid direction');
+      throw new Error('invalid direction' + newDirection);
   }
 };
 
