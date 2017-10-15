@@ -17,7 +17,7 @@ const styles = {
 const getDefaultStyles = boxes => {
   return boxes.map(box => ({
     ...box,
-    style: { height: 0, width: 0, opacity: 1 },
+    style: { height: 0, width: 0, opacity: 0 },
   }));
 };
 
@@ -42,6 +42,7 @@ const willEnter = () => ({
 
 const willLeave = () => ({
   height: spring(0),
+  width: spring(0),
   opacity: spring(0),
 });
 

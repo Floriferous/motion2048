@@ -1,18 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Motion, spring, presets } from 'react-motion';
-import colors from '../../config/colors';
+import colors, { boxColors } from '../../config/colors';
 
-const styles = {
+const getStyles = value => ({
   box: {
     position: 'absolute',
-    background: colors.box,
+    background: boxColors[value],
     color: colors.white,
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
+    opacity: 10000 - value / 10000,
   },
-};
+});
 
 const Box = ({ style, x, y, top, left, value, gameWidth, gameHeight }) => {
   return (
@@ -27,7 +28,7 @@ const Box = ({ style, x, y, top, left, value, gameWidth, gameHeight }) => {
       {motionValues => (
         <div
           style={{
-            ...styles.box,
+            ...getStyles(value).box,
             ...style,
             top: motionValues.top,
             left: motionValues.left,

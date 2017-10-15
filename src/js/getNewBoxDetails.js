@@ -15,7 +15,7 @@ const getNewBoxDetails = (boxes = []) => {
   let firstIncompleteRow = 0;
   let newX = 0;
   let id = getUid();
-  const initialValue = 100;
+  const initialValue = constants.INITIAL_VALUE;
 
   if (!boxes || boxes.length === 0) {
     return { id, x: 0, y: 0, value: initialValue };
