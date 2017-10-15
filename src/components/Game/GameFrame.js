@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import SettingsContainer from '../../containers/SettingsContainer';
+import colors from '../../config/colors';
 
 class GameFrame extends Component {
   componentDidMount() {
@@ -24,12 +25,22 @@ class GameFrame extends Component {
   render() {
     console.log(this.props);
     return (
-      <div id="gameFrame" style={{ flex: 1, position: 'relative', margin: 32 }}>
+      <div id="gameFrame" style={styles.div}>
         {this.props.children}
       </div>
     );
   }
 }
+
+const styles = {
+  div: {
+    flex: 1,
+    position: 'relative',
+    margin: 32,
+    background: colors.white,
+    boxShadow: '0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)',
+  },
+};
 
 GameFrame.propTypes = {
   onChangeSetting: PropTypes.func.isRequired,

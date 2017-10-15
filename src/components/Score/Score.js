@@ -1,11 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import colors from '../../config/colors';
 
 const styles = {
   h2: {
     position: 'absolute',
-    top: 8,
+    top: 4,
     left: 8,
+    margin: 0,
+    color: colors.white,
   },
 };
 

@@ -7,7 +7,7 @@ const styles = {
     justifyContent: 'space-around',
     alignItems: 'center',
     height: 50,
-    color: colors.text,
+    color: colors.white,
     zIndex: 1,
   },
 };
