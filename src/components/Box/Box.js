@@ -11,7 +11,6 @@ const getStyles = value => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    opacity: 10000 - value / 10000,
   },
 });
 
