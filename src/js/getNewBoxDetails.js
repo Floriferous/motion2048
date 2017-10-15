@@ -35,8 +35,15 @@ const getNewBoxDetails = (boxes = []) => {
 
   // Find first place in the row
   const row = boxRows[firstIncompleteRow];
-  if (row && row[0].x === 0) {
-    newX = row[row.length - 1].x + 1;
+  if (row && row.length) {
+    const rowX = row.map(box => box.x);
+    for (let i = 0; i < constants.BOXES_PER_ROW; i += 1) {
+      if (rowX.findIndex(x => x === i) < 0) {
+        // found x that isn't taken
+        newX = i;
+        break;
+      }
+    }
   }
 
   // Return a box with its new coordinates
