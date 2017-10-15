@@ -28,12 +28,6 @@ describe('mergeBoxes', () => {
     ]);
   });
 
-  it('merges 3 boxes into 1', () => {
-    boxes.push({ x: 5, y: 0, value: 200 });
-    const merged = mergeBoxes(boxes, 'LEFT');
-    expect(merged).to.deep.equal([{ x: 0, y: 0, value: 400 }]);
-  });
-
   it('merges 2 boxes backwards', () => {
     const merged = mergeBoxes(boxes, 'RIGHT');
     expect(merged).to.deep.equal([{ x: 3, y: 0, value: 200 }]);

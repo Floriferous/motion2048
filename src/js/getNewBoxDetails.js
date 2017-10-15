@@ -25,14 +25,14 @@ const getNewBoxDetails = (boxes = []) => {
   const boxRows = groupByKey(boxes, 'y');
 
   // Find first incomplete row
-  boxRows.every((row, i) => {
+  for (let i = 0; i < constants.BOXES_PER_ROW; i += 1) {
+    let row = boxRows[i];
     if (row && row.length === constants.BOXES_PER_ROW) {
       firstIncompleteRow += 1;
-      return true;
+    } else {
+      break;
     }
-
-    return false;
-  });
+  }
 
   // Find first place in the row
   const row = boxRows[firstIncompleteRow];

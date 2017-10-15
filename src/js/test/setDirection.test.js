@@ -1,5 +1,6 @@
 /* eslint-env mocha */
 import { expect } from 'chai';
+import constants from '../../config/constants';
 
 import setDirection from '../setDirection';
 
@@ -13,7 +14,7 @@ describe('setDirection', () => {
     expect(setDirection(box, [box], 'DOWN')).to.deep.equal({
       id: 0,
       x: 0,
-      y: 5,
+      y: constants.BOXES_PER_ROW - 1,
     });
   });
 });

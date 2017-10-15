@@ -50,7 +50,7 @@ class Game extends Component {
     const { boxes, score, onGameEnd, ...otherProps } = this.props;
 
     return (
-      <main style={styles.main}>
+      <main style={styles.main} className="animated fadeIn">
         <KeyboardController
           onEscape={() => onGameEnd(score)}
           onEnter={this.handleAddBox}
