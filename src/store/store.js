@@ -24,8 +24,8 @@ const store = createStore(
   initialState,
   compose(
     reactReduxFirebase(firebase, reduxFirebaseConfig),
-    window.__REDUX_DEVTOOLS_EXTENSION__ &&
-      window.__REDUX_DEVTOOLS_EXTENSION__(),
+    // window.__REDUX_DEVTOOLS_EXTENSION__ &&
+    //   window.__REDUX_DEVTOOLS_EXTENSION__(),
   ),
 );
 
