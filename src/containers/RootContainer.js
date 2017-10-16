@@ -15,9 +15,9 @@ const mapDispatchToProps = dispatch => ({
   onGameStart: () => dispatch(startGame()),
   onGameEnd: score => {
     dispatch(addHighscore(score));
+    dispatch(setScore(0));
     dispatch(endGame());
     dispatch(resetGame());
-    dispatch(setScore(0));
   },
   onGoHome: () => dispatch(goHome()),
 });
