@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import colors from '../../config/colors';
 import KeyboardController from '../KeyboardController';
-import Highscores from '../Highscores';
+import Highscores from './Highscores';
+import Version from './Version';
 
 const styles = {
   div: {
@@ -52,6 +53,7 @@ const Home = ({ onGameStart, highscore }) => {
       </button>
 
       <Highscores highscore={highscore} />
+      <Version />
     </div>
   );
 };
