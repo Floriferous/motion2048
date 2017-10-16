@@ -24,7 +24,7 @@ const styles = {
 class GameScreen extends Component {
   handleAddBox = () => {
     const { boxes, onAddBox, onGameEnd, score } = this.props;
-    if (boxes.length <= constants.BOXES_PER_ROW * constants.BOXES_PER_ROW) {
+    if (boxes.length < constants.BOXES_PER_ROW * constants.BOXES_PER_ROW) {
       onAddBox();
       return true;
     } else {
@@ -36,9 +36,14 @@ class GameScreen extends Component {
   handleSetDirection = direction => {
     const { onSetDirection } = this.props;
     onSetDirection(direction);
-    if (this.handleAddBox()) {
-      this.setScore();
-    }
+
+    // Wrap it in timeout, to wait for next props
+    // If setDirection removes a box this will take it into account
+    setTimeout(() => {
+      if (this.handleAddBox()) {
+        this.setScore();
+      }
+    }, 0);
   };
 
   setScore = () => {
