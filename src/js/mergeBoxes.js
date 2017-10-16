@@ -19,7 +19,7 @@ export const merge = (boxes, axis, toStart) => {
               ...previousBox,
               value: previousBox.value * 2,
             };
-            hasMerged = true;
+            // hasMerged = true;
           } else {
             prev.push(box);
           }
