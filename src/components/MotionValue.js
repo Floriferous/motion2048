@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Motion, spring, presets } from 'react-motion';
+import niceNumber from '../js/niceNumber';
 
 const MotionValue = ({ value, style, preset }) => {
   return (
@@ -8,7 +9,9 @@ const MotionValue = ({ value, style, preset }) => {
       defaultStyle={{ value: 0 }}
       style={{ value: spring(value, presets[preset]) }}
     >
-      {value => <span style={style}>{Math.round(value.value)}</span>}
+      {value => (
+        <span style={style}>{niceNumber(Math.round(value.value))}</span>
+      )}
     </Motion>
   );
 };

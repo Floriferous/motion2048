@@ -1,5 +1,7 @@
 import React from 'react';
 
+import niceNumber from '../../js/niceNumber';
+
 const OnlineHighscores = ({ onlineHighscores }) => {
   return (
     <div>
@@ -10,7 +12,9 @@ const OnlineHighscores = ({ onlineHighscores }) => {
           .slice(0, 10)
           .map(score => (
             <li key={score.id}>
-              {score.score} - {score.name}
+              <h5 style={{ margin: 0 }}>
+                {niceNumber(score.score)} - <small>{score.name}</small>
+              </h5>
             </li>
           ))}
       </ol>

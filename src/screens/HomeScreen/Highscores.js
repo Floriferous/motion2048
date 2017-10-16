@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import QueryDisplayer from '../../components/QueryDisplayer';
+import niceNumber from '../../js/niceNumber';
 import OnlineHighscores from './OnlineHighscores';
 
 const Highscores = ({ highscore, onlineHighscores }) => (
@@ -15,7 +16,7 @@ const Highscores = ({ highscore, onlineHighscores }) => (
             <ol style={{ display: 'flex', flexDirection: 'column' }}>
               {highscore
                 .sort((a, b) => b.score - a.score)
-                .map((score, i) => <li key={i}>{score.score}</li>)}
+                .map((score, i) => <li key={i}>{niceNumber(score.score)}</li>)}
             </ol>
           </div>
         )}
