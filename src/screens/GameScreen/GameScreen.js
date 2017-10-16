@@ -24,7 +24,7 @@ const styles = {
 class GameScreen extends Component {
   handleAddBox = () => {
     const { boxes, onAddBox, onGameEnd, score } = this.props;
-    if (boxes.length < constants.BOXES_PER_ROW * constants.BOXES_PER_ROW) {
+    if (boxes.length <= constants.BOXES_PER_ROW * constants.BOXES_PER_ROW) {
       onAddBox();
       return true;
     } else {

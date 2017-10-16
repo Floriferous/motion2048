@@ -53,7 +53,7 @@ const HomeScreen = ({ onGameStart, highscore, onlineHighscores }) => (
     </div>
     <div>
       <Button onClick={onGameStart} className="animated infinite pulse">
-        <span>Start Game (↩)</span>
+        <span>Press ENTER to start</span>
       </Button>
     </div>
 
