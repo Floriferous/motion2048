@@ -1,6 +1,6 @@
 {
   "name": "motion2048",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "private": true,
   "dependencies": {
     "gh-pages": "^1.0.0",
