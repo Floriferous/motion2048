@@ -18,10 +18,10 @@ const styles = {
 const Instructions = ({ onGameEnd, onAddBox }) => {
   return (
     <h3 style={styles.div}>
-      <a onClick={onAddBox} style={styles.line}>
+      {/* <a onClick={onAddBox} style={styles.line}>
         Enter: Add a box
-      </a>
-      <span style={styles.line}>Arrows: Change direction</span>
+      </a> */}
+      <span style={styles.line}>Arrow keys: Play</span>
       <a onClick={onGameEnd} style={styles.line}>
         ESC: End game
       </a>

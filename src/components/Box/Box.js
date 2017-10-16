@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Motion, spring, presets } from 'react-motion';
 import colors, { boxColors } from '../../config/colors';
+import niceNumber from '../../js/niceNumber';
 
 const getStyles = value => ({
   box: {
@@ -45,8 +46,8 @@ const Box = ({
             left: motionValues.left,
           }}
         >
-          <h2 style={{ margin: 0, fontSize: boxSize / 3 }}>
-            {Math.round(motionValues.value)}
+          <h2 style={{ margin: 0, fontSize: boxSize / 4 }}>
+            {niceNumber(Math.round(motionValues.value))}
           </h2>
         </div>
       )}
