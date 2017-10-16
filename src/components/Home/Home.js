@@ -34,30 +34,27 @@ const styles = {
   },
 };
 
-const Home = ({ onGameStart, highscore }) => {
-  console.log(process.env);
-  return (
-    <div style={styles.div}>
-      <KeyboardController onEnter={onGameStart} />
-      <h1 className="animated fadeInLeft" style={styles.title}>
-        Motion 2048
-      </h1>
-      <h4 className="animated fadeInRight" style={styles.subtitle}>
-        by Florian Bienefelt
-      </h4>
-      <button
-        onClick={onGameStart}
-        style={styles.button}
-        className="animated fadeInUp"
-      >
-        <span className="animated infinite fadeOut">Start Game (↩)</span>
-      </button>
+const Home = ({ onGameStart, highscore }) => (
+  <div style={styles.div}>
+    <KeyboardController onEnter={onGameStart} />
+    <h1 className="animated fadeInLeft" style={styles.title}>
+      Motion 2048
+    </h1>
+    <h4 className="animated fadeInRight" style={styles.subtitle}>
+      by Florian Bienefelt
+    </h4>
+    <button
+      onClick={onGameStart}
+      style={styles.button}
+      className="animated fadeInUp"
+    >
+      <span className="animated infinite fadeOut">Start Game (↩)</span>
+    </button>
 
-      <Highscores highscore={highscore} />
-      <Version />
-    </div>
-  );
-};
+    <Highscores highscore={highscore} />
+    <Version />
+  </div>
+);
 
 Home.propTypes = {
   onGameStart: PropTypes.func.isRequired,
