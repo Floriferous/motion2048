@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import SettingsContainer from '../../containers/SettingsContainer';
 import colors from '../../config/colors';
 import constants from '../../config/constants';
+import TouchTriangles from './TouchTriangles';
 
 class GameFrame extends Component {
   componentDidMount() {
@@ -32,8 +33,13 @@ class GameFrame extends Component {
   };
 
   render() {
+    const { settings: { gameWidth, gameHeight }, onClickTriangle } = this.props;
     return (
       <div id="gameFrame" style={styles.div}>
+        <TouchTriangles
+          ratio={gameHeight / gameWidth}
+          onClickTriangle={onClickTriangle}
+        />
         {this.props.children}
       </div>
     );

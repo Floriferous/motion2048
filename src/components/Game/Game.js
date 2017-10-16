@@ -56,7 +56,7 @@ class Game extends Component {
           onEnter={this.handleAddBox}
           onArrow={this.handleSetDirection}
         />
-        <GameFrame>
+        <GameFrame onClickTriangle={this.handleSetDirection}>
           <BoxList boxes={boxes} {...otherProps} />
         </GameFrame>
         <Score score={score} />
