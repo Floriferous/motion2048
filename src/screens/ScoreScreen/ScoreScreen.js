@@ -4,22 +4,24 @@ import colors from '../../config/colors';
 import MotionValue from '../../components/MotionValue';
 import KeyboardController from '../../components/KeyboardController';
 import Instructions from './Instructions';
+import './ScoreScreen.css';
 
 const ScoreScreen = ({ highscore, onGoHome, onGameStart }) => {
   return (
     <div style={styles.div} className="animated fadeIn">
       <KeyboardController onEscape={onGoHome} onEnter={onGameStart} />
-      <h1 style={styles.score} className="animated bounceInDown">
+      <h1 style={styles.score} className="animated bounceInDown score">
         <MotionValue
           value={highscore[highscore.length - 1].score}
           preset="gentle"
-        />{' '}
-        points
+        />
+        &nbsp;
+        <span>points</span>
       </h1>
-      <h1 style={styles.text} className="animated bounceInUp">
+      <h1 style={styles.text} className="animated bounceInUp text">
         GG bro
       </h1>
-      <Instructions />
+      <Instructions onGoHome={onGoHome} onGameStart={onGameStart} />
     </div>
   );
 };
@@ -36,11 +38,9 @@ const styles = {
   },
   text: {
     color: colors.white,
-    fontSize: '4em',
   },
   score: {
     color: colors.white,
-    fontSize: '6em',
     marginBottom: 40,
   },
 };

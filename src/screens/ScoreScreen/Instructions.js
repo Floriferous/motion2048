@@ -1,11 +1,15 @@
 import React from 'react';
 import colors from '../../config/colors';
 
-const Instructions = () => {
+const Instructions = ({ onGameStart, onGoHome }) => {
   return (
     <h3 style={styles.div} className="animated fadeIn">
-      <span style={styles.text}>Enter: Start again</span>
-      <span style={styles.text}>Esc: Go to Menu</span>
+      <a onClick={onGameStart} style={styles.text}>
+        Enter: Start again
+      </a>
+      <a onClick={onGoHome} style={styles.text}>
+        Esc: Go to Menu
+      </a>
     </h3>
   );
 };

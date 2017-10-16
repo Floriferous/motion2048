@@ -61,7 +61,10 @@ class Game extends Component {
           <BoxList boxes={boxes} {...otherProps} />
         </GameFrame>
         <Score score={score} />
-        <Instructions />
+        <Instructions
+          onGameEnd={() => onGameEnd(score)}
+          onAddBox={this.handleAddBox}
+        />
       </main>
     );
   }

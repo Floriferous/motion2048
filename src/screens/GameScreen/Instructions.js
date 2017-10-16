@@ -12,12 +12,12 @@ const styles = {
   },
 };
 
-const Instructions = () => {
+const Instructions = ({ onGameEnd, onAddBox }) => {
   return (
     <h3 style={styles.div}>
-      <span>Enter: Add a box</span>
+      <a onClick={onAddBox}>Enter: Add a box</a>
       <span>Arrows: Change direction</span>
-      <span>ESC: End game</span>
+      <a onClick={onGameEnd}>ESC: End game</a>
     </h3>
   );
 };
