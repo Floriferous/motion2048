@@ -37,8 +37,8 @@ export default class Triangle extends Component {
 
     return {
       position: 'absolute',
-      width: '100%',
-      height: '100%',
+      width: '200%',
+      height: '200%',
       transition: 'background-color 100ms ease',
       backgroundColor,
       ...position,
