@@ -23,9 +23,10 @@ class GameFrame extends Component {
     onChangeSetting('gameWidth', width);
 
     // Multiply max by 0.8 to add some spacing between each box
+    const boxToSpaceRatio = 0.9;
     const boxSize = Math.min(
-      height * 0.8 / constants.BOXES_PER_ROW,
-      width * 0.8 / constants.BOXES_PER_ROW,
+      height * boxToSpaceRatio / constants.BOXES_PER_ROW,
+      width * boxToSpaceRatio / constants.BOXES_PER_ROW,
     );
     onChangeSetting('boxSize', Math.round(boxSize));
   };
@@ -41,7 +42,8 @@ class GameFrame extends Component {
 
 const styles = {
   div: {
-    flex: 1,
+    display: 'flex',
+    height: '80%',
     position: 'relative',
     margin: 64,
     background: colors.white,

@@ -6,7 +6,7 @@ const styles = {
     display: 'flex',
     justifyContent: 'space-around',
     alignItems: 'center',
-    height: 50,
+    height: '20%',
     color: colors.white,
     zIndex: 1,
   },
