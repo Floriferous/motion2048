@@ -6,6 +6,19 @@ import HighscoreFormContainer from '../../containers/HighscoreFormContainer';
 import Button from '../../components/Button';
 import Input from '../../components/Input';
 
+const names = [
+  'Donald Trump',
+  'Justin Bieber',
+  'Your mom',
+  'Rebecca Black',
+  'Kim Jong-un',
+  'The Pope',
+  'God',
+  'Jesus',
+  'Hackz0r1992',
+  '1337_gamer_92',
+];
+
 class HighscoreForm extends Component {
   onSubmit = values => {
     const { push, score, onGoHome, setName } = this.props;
@@ -32,7 +45,7 @@ class HighscoreForm extends Component {
         <Field
           name="name"
           component={Input}
-          placeholder="Donald Trump"
+          placeholder={names[Math.floor(Math.random() * names.length)]}
           autoFocus={!initialValues.name}
         />
         <Button

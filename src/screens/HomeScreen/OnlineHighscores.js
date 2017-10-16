@@ -10,7 +10,7 @@ const OnlineHighscores = ({ onlineHighscores }) => {
       <ol>
         {[
           ...onlineHighscores,
-          { score: 1000000, name: 'Florian', createdAt: new Date(), id: 'top' },
+          { score: 1000000, name: 'Jesus', createdAt: new Date(), id: 'top' },
         ]
           .sort((a, b) => b.score - a.score)
           .slice(0, 20)

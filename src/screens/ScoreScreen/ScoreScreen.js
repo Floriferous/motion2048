@@ -21,7 +21,7 @@ const ScoreScreen = ({ highscore, onGoHome, onGameStart, push }) => {
         <span>points</span>
       </h1>
       <h1 style={styles.text} className="animated bounceInUp text">
-        GG bro
+        {lastScore === 0 ? 'GG n00b' : 'GG bro'}
       </h1>
       <HighscoreForm score={lastScore} push={push} onGoHome={onGoHome} />
       <Instructions onGoHome={onGoHome} onGameStart={onGameStart} />

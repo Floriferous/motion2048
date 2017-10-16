@@ -29,14 +29,18 @@ const TouchTriangle = ({ ratio, onClickTriangle }) => {
             transform: 'rotate(45deg)',
           }}
         >
-          <Triangle side="UP" onClickTriangle={onClickTriangle} delay={200} />
+          <Triangle side="UP" onClickTriangle={onClickTriangle} delay={400} />
           <Triangle
             side="RIGHT"
             onClickTriangle={onClickTriangle}
-            delay={400}
+            delay={600}
           />
-          <Triangle side="DOWN" onClickTriangle={onClickTriangle} delay={600} />
-          <Triangle side="LEFT" onClickTriangle={onClickTriangle} delay={800} />
+          <Triangle side="DOWN" onClickTriangle={onClickTriangle} delay={800} />
+          <Triangle
+            side="LEFT"
+            onClickTriangle={onClickTriangle}
+            delay={1000}
+          />
         </div>
       </div>
     </div>
