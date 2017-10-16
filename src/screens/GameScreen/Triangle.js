@@ -39,7 +39,7 @@ export default class Triangle extends Component {
       position: 'absolute',
       width: '200%',
       height: '200%',
-      transition: 'background-color 100ms ease',
+      transition: 'background-color 50ms ease',
       backgroundColor,
       ...position,
     };
