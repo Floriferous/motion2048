@@ -1,0 +1,15 @@
+.highscore {
+  width: 50%;
+}
+
+@media (max-width: 1000px) {
+  .highscore {
+    width: 70%;
+  }
+}
+
+@media (max-width: 600px) {
+  .highscore {
+    width: 90%;
+  }
+}

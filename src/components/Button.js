@@ -14,11 +14,12 @@ const styles = {
   button: {
     padding: 16,
     fontSize: '1.2em',
-    background: colors.box,
+    background: colors.secondary,
     color: colors.white,
     border: 'none',
     borderRadius: '4px',
     cursor: 'pointer',
+    boxShadow: '0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)',
   },
 };
 

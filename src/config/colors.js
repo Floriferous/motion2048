@@ -1,32 +1,24 @@
 import constants from './constants';
 
 const colors = {
-  background: '#3e739e',
-  box: '#8ec4e6',
+  background: 'linear-gradient(to right, #536976, #292e49)',
+  secondary: 'linear-gradient(to right, #ffe259, #ffa751)',
   white: '#f8f9fa',
 };
 
 const colorArray = [
-  '#88CC88',
-  '#116611',
-  '#669999',
-  '#0D4D4D',
-  '#AA6C39',
-  '#804515',
-  '#AA3939',
-  '#801515',
-  '#550000',
-  '#003333',
-  '#552700',
-
-  '#55AA55',
-  '#2D882D',
-  '#004400',
-  '#407F7F',
-  '#226666',
-  '#D49A6A',
-  '#FFAAAA',
-  '#D46A6A',
+  '#88CC88', // 200
+  '#116611', // 400
+  '#669999', // 800
+  '#0D4D4D', // 1600
+  '#AA6C39', // 3200
+  '#804515', // 6400
+  '#AA3939', // 12800
+  '#801515', // 25600
+  'linear-gradient(to right, #076585, #fff)', // 51200
+  'linear-gradient(to right, #e65c00, #f9d423)', // 102400
+  'linear-gradient(to right, #1488cc, #2b32b2)', // 204800
+  'linear-gradient(red, yellow, lime, aqua, blue, magenta, red)', // 409600
 ];
 
 const getBoxColors = () => {

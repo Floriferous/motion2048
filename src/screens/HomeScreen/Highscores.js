@@ -4,10 +4,12 @@ import PropTypes from 'prop-types';
 import QueryDisplayer from '../../components/QueryDisplayer';
 import niceNumber from '../../js/niceNumber';
 import OnlineHighscores from './OnlineHighscores';
+import './HomeScreen.css';
 
 const Highscores = ({ highscore, onlineHighscores }) => (
-  <div style={styles.div} className="animated jackInTheBox">
+  <div style={styles.div} className="animated jackInTheBox highscore">
     <h3>Highscores</h3>
+    <hr style={{ width: '100%' }} />
     <div style={styles.lists}>
       {highscore &&
         highscore.length > 0 && (
@@ -30,7 +32,6 @@ const Highscores = ({ highscore, onlineHighscores }) => (
 const styles = {
   div: {
     marginTop: 40,
-    width: '100%',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
@@ -38,7 +39,7 @@ const styles = {
   lists: {
     display: 'flex',
     width: '100%',
-    justifyContent: 'space-around',
+    justifyContent: 'space-between',
   },
   list: {
     display: 'flex',

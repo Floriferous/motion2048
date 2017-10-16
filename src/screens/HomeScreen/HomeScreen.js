@@ -24,15 +24,6 @@ const styles = {
     marginTop: 0,
     paddingBottom: 32,
   },
-  button: {
-    padding: 16,
-    fontSize: '1.2em',
-    background: colors.box,
-    color: colors.white,
-    border: 'none',
-    borderRadius: '4px',
-    cursor: 'pointer',
-  },
   link: {
     textDecoration: 'none',
     color: colors.white,
@@ -55,8 +46,8 @@ const HomeScreen = ({ onGameStart, highscore, onlineHighscores }) => (
     <h4 className="animated fadeInRight" style={styles.subtitle}>
       by Florian Bienefelt
     </h4>
-    <Button onClick={onGameStart} className="animated fadeInUp">
-      <span className="animated infinite fadeOut">Start Game (↩)</span>
+    <Button onClick={onGameStart} className="animated infinite pulse">
+      <span>Start Game (↩)</span>
     </Button>
 
     <Highscores highscore={highscore} onlineHighscores={onlineHighscores} />

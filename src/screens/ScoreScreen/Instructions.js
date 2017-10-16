@@ -4,9 +4,9 @@ import colors from '../../config/colors';
 const Instructions = ({ onGameStart, onGoHome }) => {
   return (
     <h3 style={styles.div} className="animated fadeIn">
-      <a onClick={onGameStart} style={styles.text}>
+      {/* <a onClick={onGameStart} style={styles.text}>
         Enter: Start again
-      </a>
+      </a> */}
       <a onClick={onGoHome} style={styles.text}>
         Esc: Go to Menu
       </a>
@@ -17,8 +17,8 @@ const Instructions = ({ onGameStart, onGoHome }) => {
 const styles = {
   div: {
     display: 'flex',
-    justifyContent: 'space-around',
-    width: '100%',
+    justifyContent: 'flex-end',
+    width: '60%',
     marginTop: 64,
   },
   text: {
