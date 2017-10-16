@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import colors from '../../config/colors';
-import MotionValue from '../MotionValue';
-import KeyboardController from '../KeyboardController';
+import MotionValue from '../../components/MotionValue';
+import KeyboardController from '../../components/KeyboardController';
 import Instructions from './Instructions';
 
 const ScoreScreen = ({ highscore, onGoHome, onGameStart }) => {

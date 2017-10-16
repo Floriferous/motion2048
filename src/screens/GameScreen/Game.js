@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import GameContainer from '../../containers/GameContainer';
-import KeyboardController from '../KeyboardController';
-import BoxList from '../BoxList';
-import Score from '../Score';
-import Instructions from '../Instructions';
+import KeyboardController from '../../components/KeyboardController';
+import BoxList from '../../components/BoxList';
+import Score from '../../components/Score';
+import Instructions from './Instructions';
 import colors from '../../config/colors';
 import constants from '../../config/constants';
 import GameFrame from './GameFrame';
@@ -35,8 +35,9 @@ class Game extends Component {
   handleSetDirection = direction => {
     const { onSetDirection } = this.props;
     onSetDirection(direction);
-    this.handleAddBox();
-    this.setScore();
+    if (this.handleAddBox()) {
+      this.setScore();
+    }
   };
 
   setScore = () => {

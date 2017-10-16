@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import colors from '../../config/colors';
-import KeyboardController from '../KeyboardController';
+import KeyboardController from '../../components/KeyboardController';
 import Highscores from './Highscores';
 import Version from './Version';
 
