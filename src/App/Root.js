@@ -5,24 +5,32 @@ import GameScreen from '../screens/GameScreen';
 import HomeScreen from '../screens/HomeScreen';
 import ScoreScreen from '../screens/ScoreScreen';
 
-const Root = ({ appState, onGameStart, onGameEnd, highscore, onGoHome }) => {
-  if (appState === 'game') {
+const Root = ({
+  appState: { view },
+  onGameStart,
+  onGameEnd,
+  highscore,
+  onGoHome,
+  firebase: { push },
+}) => {
+  if (view === 'game') {
     return <GameScreen onGameEnd={onGameEnd} />;
-  } else if (appState === 'home') {
+  } else if (view === 'home') {
     return <HomeScreen onGameStart={onGameStart} highscore={highscore} />;
-  } else if (appState === 'score') {
+  } else if (view === 'score') {
     return (
       <ScoreScreen
         highscore={highscore}
         onGameStart={onGameStart}
         onGoHome={onGoHome}
+        push={push}
       />
     );
   }
 };
 
 Root.propTypes = {
-  appState: PropTypes.string.isRequired,
+  appState: PropTypes.object.isRequired,
   onGameStart: PropTypes.func.isRequired,
   onGameEnd: PropTypes.func.isRequired,
 };

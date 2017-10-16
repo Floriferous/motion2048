@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import colors from '../../config/colors';
 import KeyboardController from '../../components/KeyboardController';
+import Button from '../../components/Button';
 import Highscores from './Highscores';
 import Version from './Version';
 
@@ -43,13 +44,9 @@ const Home = ({ onGameStart, highscore }) => (
     <h4 className="animated fadeInRight" style={styles.subtitle}>
       by Florian Bienefelt
     </h4>
-    <button
-      onClick={onGameStart}
-      style={styles.button}
-      className="animated fadeInUp"
-    >
+    <Button onClick={onGameStart} className="animated fadeInUp">
       <span className="animated infinite fadeOut">Start Game (↩)</span>
-    </button>
+    </Button>
 
     <Highscores highscore={highscore} />
     <Version />

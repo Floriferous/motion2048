@@ -1,4 +1,7 @@
+import { compose } from 'redux';
 import { connect } from 'react-redux';
+import { firebaseConnect } from 'react-redux-firebase';
+
 import endGame from '../actions/endGame';
 import startGame from '../actions/startGame';
 import resetGame from '../actions/resetGame';
@@ -23,6 +26,14 @@ const mapDispatchToProps = dispatch => ({
 });
 
 const RootContainer = component =>
-  connect(mapStateToProps, mapDispatchToProps)(component);
+  compose(
+    firebaseConnect([
+      {
+        path: '/highscores',
+        storeAs: 'highscores',
+      },
+    ]),
+    connect(mapStateToProps, mapDispatchToProps),
+  )(component);
 
 export default RootContainer;

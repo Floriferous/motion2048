@@ -3,9 +3,11 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin: 0;
 }
 .text {
   font-size: 4em;
+  margin: 0;
 }
 
 @media (max-width: 800px) {
