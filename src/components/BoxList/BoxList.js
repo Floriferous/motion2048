@@ -25,6 +25,7 @@ const BoxList = ({
         left: getPosition(box.x, gameWidth, boxSize),
         gameWidth,
         gameHeight,
+        boxSize,
       },
     }))}
     boxSize={boxSize}

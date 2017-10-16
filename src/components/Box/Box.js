@@ -14,7 +14,17 @@ const getStyles = value => ({
   },
 });
 
-const Box = ({ style, x, y, top, left, value, gameWidth, gameHeight }) => {
+const Box = ({
+  style,
+  x,
+  y,
+  top,
+  left,
+  value,
+  gameWidth,
+  gameHeight,
+  boxSize,
+}) => {
   return (
     <Motion
       defaultStyle={{ top: gameHeight / 2, left: gameWidth / 2, value: 0 }}
@@ -33,7 +43,9 @@ const Box = ({ style, x, y, top, left, value, gameWidth, gameHeight }) => {
             left: motionValues.left,
           }}
         >
-          <h2 style={{ margin: 0 }}>{Math.round(motionValues.value)}</h2>
+          <h2 style={{ margin: 0, fontSize: boxSize / 3 }}>
+            {Math.round(motionValues.value)}
+          </h2>
         </div>
       )}
     </Motion>

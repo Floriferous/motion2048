@@ -8,7 +8,7 @@ const groupByKey = (boxes, key) => {
     }
   });
 
-  return boxRows;
+  return boxRows.map(row => row.sort((a, b) => a[key] - b[key]));
 };
 
 export default groupByKey;
