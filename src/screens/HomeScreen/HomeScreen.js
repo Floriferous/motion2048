@@ -43,7 +43,7 @@ const styles = {
 const HomeScreen = ({ onGameStart, highscore, onlineHighscores }) => (
   <div style={styles.div}>
     <KeyboardController onEnter={onGameStart} />
-    <h1 className="animated fadeInTop" style={styles.title}>
+    <h1 className="animated fadeInDown" style={styles.title}>
       Motion 2048
     </h1>
     <h5 style={{ margin: 0, marginBottom: 16 }} className="animated fadeInLeft">

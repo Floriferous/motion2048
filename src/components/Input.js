@@ -1,9 +1,14 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 const Input = ({ meta: { error }, input, ...otherProps }) => (
   <div style={styles.div}>
-    <input type="text" style={styles.input} {...otherProps} {...input} />
+    <input
+      type="text"
+      style={styles.input}
+      {...otherProps}
+      {...input}
+      autoComplete="off"
+    />
     {error && <span style={styles.error}>{error}</span>}
   </div>
 );
