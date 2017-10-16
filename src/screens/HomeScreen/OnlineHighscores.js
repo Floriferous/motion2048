@@ -9,7 +9,7 @@ const OnlineHighscores = ({ onlineHighscores }) => {
       <ol>
         {onlineHighscores
           .sort((a, b) => b.score - a.score)
-          .slice(0, 10)
+          .slice(0, 20)
           .map(score => (
             <li key={score.id}>
               <h5 style={{ margin: 0 }}>

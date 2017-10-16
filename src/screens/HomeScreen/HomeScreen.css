@@ -1,5 +1,11 @@
 .highscore {
   width: 50%;
+  overflow: scroll;
+  margin-bottom: 16px;
+}
+
+.top {
+  text-align: center;
 }
 
 @media (max-width: 1000px) {

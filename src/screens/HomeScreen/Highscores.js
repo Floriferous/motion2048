@@ -8,7 +8,7 @@ import './HomeScreen.css';
 
 const Highscores = ({ highscore, onlineHighscores }) => (
   <div style={styles.div} className="animated jackInTheBox highscore">
-    <h3>Highscores</h3>
+    <h3 style={{ marginTop: 0, marginBottom: 8 }}>Highscores</h3>
     <hr style={{ width: '100%' }} />
     <div style={styles.lists}>
       {highscore &&
@@ -18,6 +18,7 @@ const Highscores = ({ highscore, onlineHighscores }) => (
             <ol style={{ display: 'flex', flexDirection: 'column' }}>
               {highscore
                 .sort((a, b) => b.score - a.score)
+                .slice(0, 20)
                 .map((score, i) => <li key={i}>{niceNumber(score.score)}</li>)}
             </ol>
           </div>
@@ -38,6 +39,7 @@ const styles = {
   },
   lists: {
     display: 'flex',
+    flexWrap: 'wrap',
     width: '100%',
     justifyContent: 'space-between',
   },
