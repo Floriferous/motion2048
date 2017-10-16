@@ -35,6 +35,7 @@ const styles = {
 };
 
 const Home = ({ onGameStart, highscore }) => {
+  console.log(process.env);
   return (
     <div style={styles.div}>
       <KeyboardController onEnter={onGameStart} />
