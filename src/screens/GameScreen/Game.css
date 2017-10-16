@@ -1,0 +1,11 @@
+#gameFrame {
+  margin: 64px;
+  margin-bottom: 0px;
+}
+
+@media (max-width: 800px) {
+  #gameFrame {
+    margin-left: 16px;
+    margin-right: 16px;
+  }
+}

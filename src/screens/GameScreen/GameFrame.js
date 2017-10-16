@@ -49,9 +49,8 @@ class GameFrame extends Component {
 const styles = {
   div: {
     display: 'flex',
-    height: '80%',
+    height: '90%',
     position: 'relative',
-    margin: 64,
     background: colors.white,
     boxShadow: '0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)',
     borderRadius: 4,

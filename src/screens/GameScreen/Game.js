@@ -8,6 +8,7 @@ import Instructions from './Instructions';
 import colors from '../../config/colors';
 import constants from '../../config/constants';
 import GameFrame from './GameFrame';
+import './Game.css';
 
 const styles = {
   main: {
