@@ -7,6 +7,13 @@ export default class Triangle extends Component {
     this.state = { backgroundColor: 'transparent' };
   }
 
+  componentDidMount() {
+    const { delay } = this.props;
+    setTimeout(() => {
+      this.toggleColor(200);
+    }, delay);
+  }
+
   getStyles = () => {
     const { side } = this.props;
     const { backgroundColor } = this.state;
@@ -38,14 +45,18 @@ export default class Triangle extends Component {
     };
   };
 
-  handleClick = () => {
-    const { side, onClickTriangle } = this.props;
-    onClickTriangle(side);
+  toggleColor = duration => {
     this.setState({ backgroundColor: 'rgba(200,200,200, 0.2)' }, () => {
       setTimeout(() => {
         this.setState({ backgroundColor: 'transparent' });
-      }, 100);
+      }, duration);
     });
+  };
+
+  handleClick = () => {
+    const { side, onClickTriangle } = this.props;
+    onClickTriangle(side);
+    this.toggleColor(100);
   };
 
   render() {
