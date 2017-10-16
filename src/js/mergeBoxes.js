@@ -1,7 +1,7 @@
-import groupByKey from './groupByKey';
+import groupByAxis from './groupByAxis';
 
 export const merge = (boxes, axis, toStart) => {
-  let subArrays = groupByKey(boxes, axis);
+  let subArrays = groupByAxis(boxes, axis);
   if (!toStart) {
     subArrays = subArrays.map(arr => arr.reverse());
   }

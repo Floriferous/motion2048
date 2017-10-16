@@ -1,5 +1,5 @@
 import constants from '../config/constants';
-import groupByKey from './groupByKey';
+import groupByAxis from './groupByAxis';
 
 // From stack overflow
 // https://stackoverflow.com/questions/105034/create-guid-uuid-in-javascript
@@ -22,7 +22,7 @@ const getNewBoxDetails = (boxes = []) => {
   }
 
   // group boxes by row
-  const boxRows = groupByKey(boxes, 'y');
+  const boxRows = groupByAxis(boxes, 'y');
 
   // Find first incomplete row
   for (let i = 0; i < constants.BOXES_PER_ROW; i += 1) {

@@ -1,8 +1,8 @@
 import constants from '../config/constants';
-import groupByKey from './groupByKey';
+import groupByAxis from './groupByAxis';
 
 const rearrangeBox = (box, boxes, axis, toStart) => {
-  const subArray = groupByKey(boxes, axis)[box[axis]];
+  const subArray = groupByAxis(boxes, axis)[box[axis]];
 
   // If a row/column is full, don't rearrange any box
   if (subArray && subArray.length === constants.BOXES_PER_ROW) {
