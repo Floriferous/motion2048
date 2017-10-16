@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+import { firebaseStateReducer } from 'react-redux-firebase';
 import appState from './appState';
 import gameState from './gameState';
 import gameSettings from './gameSettings';
@@ -9,6 +10,7 @@ const rootReducer = combineReducers({
   gameState,
   gameSettings,
   highscore,
+  firebase: firebaseStateReducer,
 });
 
 export default rootReducer;
