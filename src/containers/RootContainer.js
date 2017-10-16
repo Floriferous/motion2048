@@ -9,9 +9,19 @@ import goHome from '../actions/goHome';
 import addHighscore from '../actions/addHighscore';
 import setScore from '../actions/setScore';
 
-const mapStateToProps = ({ appState, highscore }) => ({
+const mapStateToProps = ({
   appState,
   highscore,
+  firebase: { data: { onlineHighscores } },
+}) => ({
+  appState,
+  highscore,
+  onlineHighscores:
+    onlineHighscores &&
+    Object.keys(onlineHighscores).map(scoreId => ({
+      ...onlineHighscores[scoreId],
+      id: scoreId,
+    })),
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -30,7 +40,7 @@ const RootContainer = component =>
     firebaseConnect([
       {
         path: '/highscores',
-        storeAs: 'highscores',
+        storeAs: 'onlineHighscores',
       },
     ]),
     connect(mapStateToProps, mapDispatchToProps),

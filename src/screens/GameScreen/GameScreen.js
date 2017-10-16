@@ -21,7 +21,7 @@ const styles = {
   },
 };
 
-class Game extends Component {
+class GameScreen extends Component {
   handleAddBox = () => {
     const { boxes, onAddBox, onGameEnd, score } = this.props;
     if (boxes.length < constants.BOXES_PER_ROW * constants.BOXES_PER_ROW) {
@@ -71,11 +71,11 @@ class Game extends Component {
   }
 }
 
-Game.propTypes = {
+GameScreen.propTypes = {
   boxes: PropTypes.arrayOf(PropTypes.object).isRequired,
   onAddBox: PropTypes.func.isRequired,
   onGameEnd: PropTypes.func.isRequired,
   onSetDirection: PropTypes.func.isRequired,
 };
 
-export default GameContainer(Game);
+export default GameContainer(GameScreen);

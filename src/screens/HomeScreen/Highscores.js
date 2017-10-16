@@ -1,21 +1,49 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Highscores = ({ highscore }) => {
-  if (highscore.length) {
-    return (
-      <div style={{ marginTop: 40 }} className="animated jackInTheBox">
-        <h3>Highscores</h3>
-        <ol style={{ display: 'flex', flexDirection: 'column' }}>
-          {highscore
-            .sort((a, b) => b.score - a.score)
-            .map((score, i) => <li key={i}>{score.score}</li>)}
-        </ol>
-      </div>
-    );
-  }
+import QueryDisplayer from '../../components/QueryDisplayer';
+import OnlineHighscores from './OnlineHighscores';
 
-  return null;
+const Highscores = ({ highscore, onlineHighscores }) => (
+  <div style={styles.div} className="animated jackInTheBox">
+    <h3>Highscores</h3>
+    <div style={styles.lists}>
+      {highscore &&
+        highscore.length > 0 && (
+          <div style={styles.list}>
+            <h4>Your highscores</h4>
+            <ol style={{ display: 'flex', flexDirection: 'column' }}>
+              {highscore
+                .sort((a, b) => b.score - a.score)
+                .map((score, i) => <li key={i}>{score.score}</li>)}
+            </ol>
+          </div>
+        )}
+      <QueryDisplayer queryItems={onlineHighscores}>
+        <OnlineHighscores onlineHighscores={onlineHighscores} />
+      </QueryDisplayer>
+    </div>
+  </div>
+);
+
+const styles = {
+  div: {
+    marginTop: 40,
+    width: '100%',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+  },
+  lists: {
+    display: 'flex',
+    width: '100%',
+    justifyContent: 'space-around',
+  },
+  list: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+  },
 };
 
 Highscores.propTypes = {

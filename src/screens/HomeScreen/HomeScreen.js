@@ -35,7 +35,7 @@ const styles = {
   },
 };
 
-const Home = ({ onGameStart, highscore }) => (
+const HomeScreen = ({ onGameStart, highscore, onlineHighscores }) => (
   <div style={styles.div}>
     <KeyboardController onEnter={onGameStart} />
     <h1 className="animated fadeInLeft" style={styles.title}>
@@ -48,13 +48,13 @@ const Home = ({ onGameStart, highscore }) => (
       <span className="animated infinite fadeOut">Start Game (↩)</span>
     </Button>
 
-    <Highscores highscore={highscore} />
+    <Highscores highscore={highscore} onlineHighscores={onlineHighscores} />
     <Version />
   </div>
 );
 
-Home.propTypes = {
+HomeScreen.propTypes = {
   onGameStart: PropTypes.func.isRequired,
 };
 
-export default Home;
+export default HomeScreen;

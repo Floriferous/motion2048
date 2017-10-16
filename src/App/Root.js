@@ -10,20 +10,27 @@ const Root = ({
   onGameStart,
   onGameEnd,
   highscore,
+  onlineHighscores,
   onGoHome,
   firebase: { push },
 }) => {
   if (view === 'game') {
     return <GameScreen onGameEnd={onGameEnd} />;
   } else if (view === 'home') {
-    return <HomeScreen onGameStart={onGameStart} highscore={highscore} />;
+    return (
+      <HomeScreen
+        onGameStart={onGameStart}
+        highscore={highscore}
+        onlineHighscores={onlineHighscores}
+      />
+    );
   } else if (view === 'score') {
     return (
       <ScoreScreen
-        highscore={highscore}
         onGameStart={onGameStart}
         onGoHome={onGoHome}
         push={push}
+        highscore={highscore}
       />
     );
   }

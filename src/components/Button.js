@@ -2,13 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import colors from '../config/colors';
 
-const Button = ({ children, onClick, className, style }) => {
+const Button = ({ children, style, ...otherProps }) => {
   return (
-    <button
-      onClick={onClick}
-      style={{ ...styles.button, ...style }}
-      className={className}
-    >
+    <button style={{ ...styles.button, ...style }} {...otherProps}>
       {children}
     </button>
   );

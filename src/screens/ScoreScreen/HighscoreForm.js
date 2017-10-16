@@ -24,7 +24,7 @@ class HighscoreForm extends Component {
   };
 
   render() {
-    const { handleSubmit } = this.props;
+    const { handleSubmit, initialValues } = this.props;
     const submit = handleSubmit(this.onSubmit);
 
     return (
@@ -33,9 +33,13 @@ class HighscoreForm extends Component {
           name="name"
           component={Input}
           placeholder="Donald Trump"
-          autoFocus
+          autoFocus={!initialValues.name}
         />
-        <Button style={styles.button} onClick={submit}>
+        <Button
+          style={styles.button}
+          onClick={submit}
+          autoFocus={!!initialValues.name}
+        >
           Submit score
         </Button>
       </form>

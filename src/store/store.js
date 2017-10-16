@@ -1,5 +1,7 @@
 import { createStore, compose } from 'redux';
 import { reactReduxFirebase } from 'react-redux-firebase';
+import * as firebase from 'firebase';
+
 import rootReducer from '../reducers';
 
 const firebaseConfig = {
@@ -11,19 +13,20 @@ const firebaseConfig = {
   messagingSenderId: '698313910536',
 };
 
-const reduxFirebaseConfig = { userProfile: 'users' };
+firebase.initializeApp(firebaseConfig); // initialize firebase instance
 
-// Add redux Firebase to compose
-const createStoreWithFirebase = compose(
-  reactReduxFirebase(firebaseConfig, reduxFirebaseConfig),
-)(createStore);
+const reduxFirebaseConfig = { userProfile: 'users' };
 
 // Create store with reducers and initial state
 const initialState = {};
-const store = createStoreWithFirebase(
+const store = createStore(
   rootReducer,
   initialState,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+  compose(
+    reactReduxFirebase(firebase, reduxFirebaseConfig),
+    window.__REDUX_DEVTOOLS_EXTENSION__ &&
+      window.__REDUX_DEVTOOLS_EXTENSION__(),
+  ),
 );
 
 export default store;
