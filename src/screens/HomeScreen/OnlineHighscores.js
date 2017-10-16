@@ -1,4 +1,5 @@
 import React from 'react';
+import moment from 'moment';
 
 import niceNumber from '../../js/niceNumber';
 
@@ -13,7 +14,13 @@ const OnlineHighscores = ({ onlineHighscores }) => {
           .map(score => (
             <li key={score.id}>
               <h5 style={{ margin: 0 }}>
-                {niceNumber(score.score)} - <small>{score.name}</small>
+                {niceNumber(score.score)} -{' '}
+                <small>
+                  {score.name},{' '}
+                  <span style={{ opacity: 0.6 }}>
+                    {moment(score.createdAt).fromNow()}
+                  </span>
+                </small>
               </h5>
             </li>
           ))}
