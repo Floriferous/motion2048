@@ -1,6 +1,6 @@
 {
   "name": "motion2048",
-  "version": "0.3.13",
+  "version": "0.3.14",
   "private": true,
   "dependencies": {
     "cross-env": "^5.1.0",
