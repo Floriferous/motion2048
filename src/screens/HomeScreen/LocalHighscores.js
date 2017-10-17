@@ -13,7 +13,7 @@ const styles = {
 
 const LocalHighscores = ({ highscores }) => (
   <div style={styles.list}>
-    <h4>Your highscores</h4>
+    <h4 style={{ margin: 0, marginTop: 8 }}>Your highscores</h4>
     <ol style={{ display: 'flex', flexDirection: 'column' }}>
       {highscores
         .slice(0, 20)
