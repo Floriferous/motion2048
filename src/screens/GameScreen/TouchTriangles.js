@@ -4,47 +4,29 @@ import Triangle from './Triangle';
 
 const TouchTriangle = ({ ratio, onClickTriangle }) => {
   return (
-    <div
-      style={{
-        position: 'absolute',
-        width: '100%',
-        height: '100%',
-        overflow: 'hidden',
-        zIndex: 1,
-      }}
-    >
-      <div
-        style={{
-          position: 'absolute',
-          width: '100%',
-          height: '100%',
-          transform: `scaleX(${1 / ratio})`,
-        }}
-      >
-        <div
-          style={{
-            position: 'absolute',
-            width: '100%',
-            height: '100%',
-            transform: 'rotate(45deg)',
-          }}
-        >
-          <Triangle side="UP" onClickTriangle={onClickTriangle} delay={400} />
-          <Triangle
-            side="RIGHT"
-            onClickTriangle={onClickTriangle}
-            delay={600}
-          />
-          <Triangle side="DOWN" onClickTriangle={onClickTriangle} delay={800} />
-          <Triangle
-            side="LEFT"
-            onClickTriangle={onClickTriangle}
-            delay={1000}
-          />
+    <div style={{ ...styles.div, overflow: 'hidden', zIndex: 1 }}>
+      <div style={{ ...styles.div, transform: `scaleX(${1 / ratio})` }}>
+        <div style={{ ...styles.div, transform: 'rotate(45deg)' }}>
+          {['UP', 'RIGHT', 'DOWN', 'LEFT'].map((direction, i) => (
+            <Triangle
+              side={direction}
+              key={direction}
+              onClickTriangle={onClickTriangle}
+              delay={(i + 2) * 200}
+            />
+          ))}
         </div>
       </div>
     </div>
   );
+};
+
+const styles = {
+  div: {
+    position: 'absolute',
+    width: '100%',
+    height: '100%',
+  },
 };
 
 TouchTriangle.propTypes = {

@@ -1,6 +1,3 @@
-const addHighScore = score => ({
-  type: 'ADD_HIGHSCORE',
-  score,
-});
+const addHighScore = score => ({ type: 'ADD_HIGHSCORE', score });
 
 export default addHighScore;

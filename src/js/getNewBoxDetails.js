@@ -3,22 +3,26 @@ import groupByAxis from './groupByAxis';
 
 // From stack overflow
 // https://stackoverflow.com/questions/105034/create-guid-uuid-in-javascript
-const getUid = () => {
-  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-    const r = (Math.random() * 16) | 0,
-      v = c === 'x' ? r : (r & 0x3) | 0x8;
+const getUid = () =>
+  'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, (c) => {
+    const r = (Math.random() * 16) | 0;
+    const v = c === 'x' ? r : (r & 0x3) | 0x8;
     return v.toString(16);
   });
-};
 
 const getNewBoxDetails = (boxes = []) => {
   let firstIncompleteRow = 0;
   let newX = 0;
-  let id = getUid();
+  const id = getUid();
   const initialValue = constants.INITIAL_VALUE;
 
   if (!boxes || boxes.length === 0) {
-    return { id, x: 0, y: 0, value: initialValue };
+    return {
+      id,
+      x: 0,
+      y: 0,
+      value: initialValue,
+    };
   }
 
   // group boxes by row
@@ -26,7 +30,7 @@ const getNewBoxDetails = (boxes = []) => {
 
   // Find first incomplete row
   for (let i = 0; i < constants.BOXES_PER_ROW; i += 1) {
-    let row = boxRows[i];
+    const row = boxRows[i];
     if (row && row.length === constants.BOXES_PER_ROW) {
       firstIncompleteRow += 1;
     } else {

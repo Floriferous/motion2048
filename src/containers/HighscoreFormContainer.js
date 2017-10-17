@@ -4,7 +4,7 @@ import { reduxForm } from 'redux-form';
 
 import setName from '../actions/setName';
 
-const validate = values => {
+const validate = (values) => {
   const errors = {};
 
   if (values.name && values.name.length <= 3) {

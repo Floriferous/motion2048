@@ -1,5 +1,3 @@
-const endGame = () => ({
-  type: 'END_GAME',
-});
+const endGame = () => ({ type: 'END_GAME' });
 
 export default endGame;

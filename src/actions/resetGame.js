@@ -1,5 +1,3 @@
-const resetGame = () => ({
-  type: 'RESET_GAME',
-});
+const resetGame = () => ({ type: 'RESET_GAME' });
 
 export default resetGame;

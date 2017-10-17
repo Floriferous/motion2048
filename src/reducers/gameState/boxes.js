@@ -1,6 +1,7 @@
 import getNewBoxDetails from '../../js/getNewBoxDetails';
 import setDirection from '../../js/setDirection';
 import mergeBoxes from '../../js/mergeBoxes';
+
 const initialState = [];
 
 const boxes = (state = initialState, action) => {
@@ -11,8 +12,7 @@ const boxes = (state = initialState, action) => {
       return mergeBoxes(state, action.newDirection);
     case 'SET_DIRECTION':
       return state.map((box, i, array) =>
-        setDirection(box, array, action.newDirection),
-      );
+        setDirection(box, array, action.newDirection));
     case 'RESET_GAME':
       return initialState;
     default:

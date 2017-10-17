@@ -18,7 +18,7 @@ export default class KeyboardController extends Component {
     document.removeEventListener('keydown', this.handleKeyDown);
   }
 
-  handleKeyDown = event => {
+  handleKeyDown = (event) => {
     const { onEscape, onEnter, onArrow } = this.props;
 
     switch (event.keyCode) {
@@ -41,7 +41,6 @@ export default class KeyboardController extends Component {
         onArrow('DOWN');
         break;
       default:
-        return;
     }
   };
 

@@ -7,9 +7,9 @@ export const merge = (boxes, axis, toStart) => {
   }
 
   return subArrays
-    .map(subArray => {
-      let hasMerged = false;
-      return subArray.reduce((prev, box, index, array) => {
+    .map((subArray) => {
+      const hasMerged = false;
+      return subArray.reduce((prev, box) => {
         if (!hasMerged && prev.length > 0) {
           // Check if previous box has the same value
           const previousBox = prev[prev.length - 1];

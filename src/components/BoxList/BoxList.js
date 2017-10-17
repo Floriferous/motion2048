@@ -1,14 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import BoxListTransition from './BoxListTransition';
+
 import constants from '../../config/constants';
+import BoxListTransition from './BoxListTransition';
 
 const getPosition = (i, max, boxSize) => {
   const space =
     (max - constants.BOXES_PER_ROW * boxSize) / (constants.BOXES_PER_ROW - 1);
-  const spaceSize = i * space;
-  const boxesSize = i * boxSize;
-  return boxesSize + spaceSize;
+  return i * (space + boxSize);
 };
 
 const BoxList = ({
@@ -18,7 +17,7 @@ const BoxList = ({
 }) => (
   <BoxListTransition
     boxes={boxes.map(box => ({
-      key: '' + box.id,
+      key: `${box.id}`,
       data: {
         ...box,
         top: getPosition(box.y, gameHeight, boxSize),
@@ -35,6 +34,7 @@ const BoxList = ({
 
 BoxList.propTypes = {
   boxes: PropTypes.arrayOf(PropTypes.object).isRequired,
+  settings: PropTypes.objectOf(PropTypes.any).isRequired,
 };
 
 export default BoxList;

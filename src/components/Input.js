@@ -1,17 +1,5 @@
 import React from 'react';
-
-const Input = ({ meta: { error }, input, ...otherProps }) => (
-  <div style={styles.div}>
-    <input
-      type="text"
-      style={styles.input}
-      {...otherProps}
-      {...input}
-      autoComplete="off"
-    />
-    {error && <span style={styles.error}>{error}</span>}
-  </div>
-);
+import PropTypes from 'prop-types';
 
 const styles = {
   div: {
@@ -36,6 +24,22 @@ const styles = {
   },
 };
 
-Input.propTypes = {};
+const Input = ({ meta: { error }, input, ...otherProps }) => (
+  <div style={styles.div}>
+    <input
+      type="text"
+      style={styles.input}
+      {...otherProps}
+      {...input}
+      autoComplete="off"
+    />
+    {error && <span style={styles.error}>{error}</span>}
+  </div>
+);
+
+Input.propTypes = {
+  meta: PropTypes.objectOf(PropTypes.any).isRequired,
+  input: PropTypes.objectOf(PropTypes.any).isRequired,
+};
 
 export default Input;

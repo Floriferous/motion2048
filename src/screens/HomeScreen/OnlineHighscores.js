@@ -1,4 +1,5 @@
 import React from 'react';
+import moment from 'moment';
 
 import niceNumber from '../../js/niceNumber';
 import HighscoreItem from './HighscoreItem';
@@ -6,7 +7,7 @@ import HighscoreItem from './HighscoreItem';
 const OnlineHighscores = ({ onlineHighscores, bestScore }) => {
   const sortedHighscores = [
     ...onlineHighscores,
-    { score: 1000000, name: 'Jesus', createdAt: new Date(), id: 'top' },
+    { score: 1000000, name: 'Jesus', createdAt: moment().year(17), id: 'top' },
   ].sort((a, b) => b.score - a.score);
   const bestIndex =
     bestScore &&

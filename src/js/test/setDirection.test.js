@@ -5,7 +5,7 @@ import constants from '../../config/constants';
 import setDirection from '../setDirection';
 
 describe('setDirection', () => {
-  let box = { id: 0, x: 0, y: 0 };
+  const box = { id: 0, x: 0, y: 0 };
   it('does nothing to a box at 0,0', () => {
     expect(setDirection(box, [box], 'UP')).to.deep.equal(box);
   });

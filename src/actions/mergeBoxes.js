@@ -1,6 +1,3 @@
-const mergeBoxes = newDirection => ({
-  type: 'MERGE_BOXES',
-  newDirection,
-});
+const mergeBoxes = newDirection => ({ type: 'MERGE_BOXES', newDirection });
 
 export default mergeBoxes;

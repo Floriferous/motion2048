@@ -1,45 +1,51 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
 import RootContainer from '../containers/RootContainer';
 import GameScreen from '../screens/GameScreen';
 import HomeScreen from '../screens/HomeScreen';
 import ScoreScreen from '../screens/ScoreScreen';
 
 const Root = ({
-  appState: { view },
+  view,
   onGameStart,
-  onGameEnd,
   highscore,
   onlineHighscores,
   onGoHome,
   firebase: { push },
 }) => {
-  if (view === 'game') {
-    return <GameScreen onGameEnd={onGameEnd} />;
-  } else if (view === 'home') {
-    return (
-      <HomeScreen
-        onGameStart={onGameStart}
-        highscore={highscore}
-        onlineHighscores={onlineHighscores}
-      />
-    );
-  } else if (view === 'score') {
-    return (
-      <ScoreScreen
-        onGameStart={onGameStart}
-        onGoHome={onGoHome}
-        push={push}
-        highscore={highscore}
-      />
-    );
+  switch (view) {
+    case 'game':
+      return <GameScreen />;
+    case 'home':
+      return (
+        <HomeScreen
+          onGameStart={onGameStart}
+          highscore={highscore}
+          onlineHighscores={onlineHighscores}
+        />
+      );
+    case 'sore':
+      return (
+        <ScoreScreen
+          onGameStart={onGameStart}
+          onGoHome={onGoHome}
+          push={push}
+          highscore={highscore}
+        />
+      );
+    default:
+      throw new Error(`invalid view name: ${view}`);
   }
 };
 
 Root.propTypes = {
-  appState: PropTypes.object.isRequired,
+  view: PropTypes.string.isRequired,
   onGameStart: PropTypes.func.isRequired,
-  onGameEnd: PropTypes.func.isRequired,
+  onGoHome: PropTypes.func.isRequired,
+  highscore: PropTypes.arrayOf(PropTypes.object).isRequired,
+  onlineHighscores: PropTypes.arrayOf(PropTypes.object).isRequired,
+  firebase: PropTypes.objectOf(PropTypes.any).isRequired,
 };
 
 export default RootContainer(Root);

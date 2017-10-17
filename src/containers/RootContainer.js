@@ -2,20 +2,17 @@ import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { firebaseConnect } from 'react-redux-firebase';
 
-import endGame from '../actions/endGame';
 import startGame from '../actions/startGame';
-import resetGame from '../actions/resetGame';
 import goHome from '../actions/goHome';
-import addHighscore from '../actions/addHighscore';
-import setScore from '../actions/setScore';
 
 const mapStateToProps = ({
-  appState,
+  appState: { view },
   highscore,
   firebase: { data: { onlineHighscores } },
 }) => ({
-  appState,
+  view,
   highscore,
+  // Map firebase object to array
   onlineHighscores:
     onlineHighscores &&
     Object.keys(onlineHighscores).map(scoreId => ({
@@ -26,12 +23,6 @@ const mapStateToProps = ({
 
 const mapDispatchToProps = dispatch => ({
   onGameStart: () => dispatch(startGame()),
-  onGameEnd: score => {
-    dispatch(addHighscore(score));
-    dispatch(setScore(0));
-    dispatch(endGame());
-    dispatch(resetGame());
-  },
   onGoHome: () => dispatch(goHome()),
 });
 

@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Box from '../Box';
 import { TransitionMotion, spring, presets } from 'react-motion';
+
+import Box from '../Box';
 
 const styles = {
   div: {
@@ -14,31 +15,23 @@ const styles = {
   },
 };
 
-const getDefaultStyles = boxes => {
-  return boxes.map(box => ({
+const getDefaultStyles = boxes =>
+  boxes.map(box => ({
     ...box,
     style: { height: 0, width: 0, opacity: 0 },
   }));
-};
 
-const getStyles = (boxes, boxSize) => {
-  return boxes.map((box, i) => {
-    return {
-      ...box,
-      style: {
-        height: spring(boxSize, presets.gentle),
-        width: spring(boxSize, presets.gentle),
-        opacity: spring(1, presets.gentle),
-      },
-    };
-  });
-};
+const getStyles = (boxes, boxSize) =>
+  boxes.map(box => ({
+    ...box,
+    style: {
+      height: spring(boxSize, presets.gentle),
+      width: spring(boxSize, presets.gentle),
+      opacity: spring(1, presets.gentle),
+    },
+  }));
 
-const willEnter = () => ({
-  height: 0,
-  width: 0,
-  opacity: 0,
-});
+const willEnter = () => ({ height: 0, width: 0, opacity: 0 });
 
 const willLeave = () => ({
   height: spring(0),
@@ -65,6 +58,7 @@ const BoxListTransition = ({ boxes, boxSize, ...otherProps }) => (
 
 BoxListTransition.propTypes = {
   boxes: PropTypes.arrayOf(PropTypes.object).isRequired,
+  boxSize: PropTypes.number.isRequired,
 };
 
 export default BoxListTransition;

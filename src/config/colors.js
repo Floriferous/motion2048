@@ -24,7 +24,7 @@ const colorArray = [
 const getBoxColors = () => {
   const obj = {};
   colorArray.forEach((color, i) => {
-    obj[constants.INITIAL_VALUE * Math.pow(2, i)] = color;
+    obj[constants.INITIAL_VALUE * 2 ** i] = color;
   });
 
   return obj;
