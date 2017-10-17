@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import colors from '../../config/colors';
 import KeyboardController from '../../components/KeyboardController';
 import Button from '../../components/Button';
-import Highscores from './Highscores';
+import HighscoreList from './HighscoreList';
 import Version from './Version';
 
 const styles = {
@@ -57,7 +57,7 @@ const HomeScreen = ({ onGameStart, highscore, onlineHighscores }) => (
       </Button>
     </div>
 
-    <Highscores highscore={highscore} onlineHighscores={onlineHighscores} />
+    <HighscoreList highscore={highscore} onlineHighscores={onlineHighscores} />
     <Version />
   </div>
 );
