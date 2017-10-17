@@ -25,7 +25,7 @@ const Root = ({
           onlineHighscores={onlineHighscores}
         />
       );
-    case 'sore':
+    case 'score':
       return (
         <ScoreScreen
           onGameStart={onGameStart}
