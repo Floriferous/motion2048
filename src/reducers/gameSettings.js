@@ -1,4 +1,7 @@
-const initialState = {};
+const initialState = {
+  damping: 15,
+  stiffness: 120,
+};
 
 const gameSettings = (state = initialState, action) => {
   switch (action.type) {

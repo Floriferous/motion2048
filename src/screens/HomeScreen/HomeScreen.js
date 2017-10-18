@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import colors from '../../config/colors';
 import KeyboardController from '../../components/KeyboardController';
 import Button from '../../components/Button';
+import SettingsModal from '../../components/SettingsModal';
 import HighscoreList from './HighscoreList';
 import Version from './Version';
 
@@ -16,6 +17,7 @@ const styles = {
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
+    position: 'relative',
   },
   title: {
     marginBottom: 8,
@@ -34,6 +36,7 @@ const styles = {
 const HomeScreen = ({ onGameStart, highscore, onlineHighscores }) => (
   <div style={styles.div}>
     <KeyboardController onEnter={onGameStart} />
+    <SettingsModal />
     <div className="top">
       <h1 className="animated fadeInDown" style={styles.title}>
         Motion 2048

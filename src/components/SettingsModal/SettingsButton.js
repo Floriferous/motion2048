@@ -6,23 +6,24 @@ import SettingsIcon from 'material-ui-icons/Settings';
 import SettingsContainer from '../../containers/SettingsContainer';
 import SettingsModal from './SettingsModal';
 
-const SettingsButton = ({
-  settings: { modalIsOpen },
-  toggleModal,
-  changeSetting,
-}) => (
+const SettingsButton = ({ settings, toggleModal, onChangeSetting }) => (
   <div style={{ position: 'absolute', top: 8, right: 8 }}>
     <IconButton onClick={toggleModal}>
       <SettingsIcon style={{ color: 'white' }} />
     </IconButton>
     <SettingsModal
-      open={modalIsOpen}
-      onRequestClose={toggleModal}
-      changeSetting={changeSetting}
+      open={settings.modalIsOpen}
+      toggleModal={toggleModal}
+      onChangeSetting={onChangeSetting}
+      settings={settings}
     />
   </div>
 );
 
-SettingsButton.propTypes = {};
+SettingsButton.propTypes = {
+  settings: PropTypes.objectOf(PropTypes.any).isRequired,
+  toggleModal: PropTypes.func.isRequired,
+  onChangeSetting: PropTypes.func.isRequired,
+};
 
 export default SettingsContainer(SettingsButton);

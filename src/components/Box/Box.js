@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Motion, spring, presets } from 'react-motion';
+import { Motion, spring } from 'react-motion';
 
 import colors, { boxColors } from '../../config/colors';
 
@@ -19,14 +19,22 @@ const getStyles = value => ({
 });
 
 const Box = ({
-  style, top, left, value, gameWidth, gameHeight, boxSize,
+  style,
+  top,
+  left,
+  value,
+  gameWidth,
+  gameHeight,
+  boxSize,
+  stiffness,
+  damping,
 }) => (
   <Motion
     defaultStyle={{ top: gameHeight / 2, left: gameWidth / 2, value: 0 }}
     style={{
-      top: spring(top, presets.stiff),
-      left: spring(left, presets.stiff),
-      value: spring(value, presets.stiff),
+      top: spring(top, { stiffness, damping }),
+      left: spring(left, { stiffness, damping }),
+      value: spring(value, { stiffness, damping }),
     }}
   >
     {motionValues => (
@@ -54,6 +62,8 @@ Box.propTypes = {
   gameWidth: PropTypes.number.isRequired,
   gameHeight: PropTypes.number.isRequired,
   boxSize: PropTypes.number.isRequired,
+  stiffness: PropTypes.number.isRequired,
+  damping: PropTypes.number.isRequired,
 };
 
 export default Box;

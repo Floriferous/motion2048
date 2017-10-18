@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { TransitionMotion, spring, presets } from 'react-motion';
+import { TransitionMotion, spring } from 'react-motion';
 
 import Box from '../Box';
 
@@ -21,13 +21,13 @@ const getDefaultStyles = boxes =>
     style: { height: 0, width: 0, opacity: 0 },
   }));
 
-const getStyles = (boxes, boxSize) =>
+const getStyles = (boxes, boxSize, springValues) =>
   boxes.map(box => ({
     ...box,
     style: {
-      height: spring(boxSize, presets.gentle),
-      width: spring(boxSize, presets.gentle),
-      opacity: spring(1, presets.gentle),
+      height: spring(boxSize, springValues),
+      width: spring(boxSize, springValues),
+      opacity: spring(1, springValues),
     },
   }));
 
@@ -39,17 +39,30 @@ const willLeave = () => ({
   opacity: spring(0),
 });
 
-const BoxListTransition = ({ boxes, boxSize, ...otherProps }) => (
+const BoxListTransition = ({
+  boxes,
+  boxSize,
+  stiffness,
+  damping,
+  ...otherProps
+}) => (
   <TransitionMotion
     defaultStyles={getDefaultStyles(boxes)}
-    styles={getStyles(boxes, boxSize)}
+    styles={getStyles(boxes, boxSize, { stiffness, damping })}
     willLeave={willLeave}
     willEnter={willEnter}
   >
     {boxStyles => (
       <div style={styles.div}>
         {boxStyles.map(({ key, style, data }) => (
-          <Box key={key} style={style} {...data} {...otherProps} />
+          <Box
+            key={key}
+            style={style}
+            stiffness={stiffness}
+            damping={damping}
+            {...data}
+            {...otherProps}
+          />
         ))}
       </div>
     )}
@@ -59,6 +72,8 @@ const BoxListTransition = ({ boxes, boxSize, ...otherProps }) => (
 BoxListTransition.propTypes = {
   boxes: PropTypes.arrayOf(PropTypes.object).isRequired,
   boxSize: PropTypes.number.isRequired,
+  stiffness: PropTypes.number.isRequired,
+  damping: PropTypes.number.isRequired,
 };
 
 export default BoxListTransition;

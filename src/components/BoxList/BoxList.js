@@ -12,7 +12,9 @@ const getPosition = (i, max, boxSize) => {
 
 const BoxList = ({
   boxes,
-  settings: { gameWidth, gameHeight, boxSize },
+  settings: {
+    gameWidth, gameHeight, boxSize, stiffness, damping,
+  },
   ...otherProps
 }) => (
   <BoxListTransition
@@ -28,6 +30,8 @@ const BoxList = ({
       },
     }))}
     boxSize={boxSize}
+    stiffness={stiffness}
+    damping={damping}
     {...otherProps}
   />
 );

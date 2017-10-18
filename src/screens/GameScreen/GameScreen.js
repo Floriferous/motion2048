@@ -4,11 +4,11 @@ import GameContainer from '../../containers/GameContainer';
 import KeyboardController from '../../components/KeyboardController';
 import BoxList from '../../components/BoxList';
 import Score from '../../components/Score';
+import SettingsModal from '../../components/SettingsModal';
 import Instructions from './Instructions';
 import colors from '../../config/colors';
 import constants from '../../config/constants';
 import GameFrame from './GameFrame';
-import SettingsButton from './SettingsButton';
 import './Game.css';
 
 const styles = {
@@ -19,10 +19,16 @@ const styles = {
     flexDirection: 'column',
     background: colors.background,
     position: 'relative',
+    overflow: 'hidden',
   },
 };
 
 class GameScreen extends Component {
+  setScore = () => {
+    const { onSetScore, boxes } = this.props;
+    onSetScore(boxes.length && boxes.map(box => box.value).reduce((a, b) => a + b));
+  };
+
   handleAddBox = () => {
     const {
       boxes, onAddBox, onGameEnd, score,
@@ -48,11 +54,6 @@ class GameScreen extends Component {
     }, 0);
   };
 
-  setScore = () => {
-    const { onSetScore, boxes } = this.props;
-    onSetScore(boxes.length && boxes.map(box => box.value).reduce((a, b) => a + b));
-  };
-
   render() {
     const {
       boxes, score, onGameEnd, settings: { modalIsOpen },
@@ -66,7 +67,7 @@ class GameScreen extends Component {
           onArrow={this.handleSetDirection}
         />
         <Score score={score} />
-        <SettingsButton />
+        <SettingsModal />
         <GameFrame onClickTriangle={this.handleSetDirection}>
           <BoxList boxes={boxes} {...this.props} />
         </GameFrame>
