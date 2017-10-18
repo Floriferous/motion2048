@@ -8,6 +8,7 @@ import Instructions from './Instructions';
 import colors from '../../config/colors';
 import constants from '../../config/constants';
 import GameFrame from './GameFrame';
+import SettingsButton from './SettingsButton';
 import './Game.css';
 
 const styles = {
@@ -23,17 +24,18 @@ const styles = {
 
 class GameScreen extends Component {
   handleAddBox = () => {
-    const { boxes, onAddBox, onGameEnd, score } = this.props;
+    const {
+      boxes, onAddBox, onGameEnd, score,
+    } = this.props;
     if (boxes.length < constants.BOXES_PER_ROW * constants.BOXES_PER_ROW) {
       onAddBox();
       return true;
-    } else {
-      onGameEnd(score);
-      return false;
     }
+    onGameEnd(score);
+    return false;
   };
 
-  handleSetDirection = direction => {
+  handleSetDirection = (direction) => {
     const { onSetDirection } = this.props;
     onSetDirection(direction);
 
@@ -48,25 +50,26 @@ class GameScreen extends Component {
 
   setScore = () => {
     const { onSetScore, boxes } = this.props;
-    onSetScore(
-      boxes.length && boxes.map(box => box.value).reduce((a, b) => a + b),
-    );
+    onSetScore(boxes.length && boxes.map(box => box.value).reduce((a, b) => a + b));
   };
 
   render() {
-    const { boxes, score, onGameEnd, ...otherProps } = this.props;
+    const {
+      boxes, score, onGameEnd, settings: { modalIsOpen },
+    } = this.props;
 
     return (
       <main style={styles.main} className="animated fadeIn">
         <KeyboardController
-          onEscape={() => onGameEnd(score)}
+          onEscape={modalIsOpen ? () => {} : () => onGameEnd(score)}
           onEnter={this.handleAddBox}
           onArrow={this.handleSetDirection}
         />
-        <GameFrame onClickTriangle={this.handleSetDirection}>
-          <BoxList boxes={boxes} {...otherProps} />
-        </GameFrame>
         <Score score={score} />
+        <SettingsButton />
+        <GameFrame onClickTriangle={this.handleSetDirection}>
+          <BoxList boxes={boxes} {...this.props} />
+        </GameFrame>
         <Instructions
           onGameEnd={() => onGameEnd(score)}
           onAddBox={this.handleAddBox}
