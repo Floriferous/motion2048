@@ -1,6 +1,6 @@
 const initialState = {
   damping: 15,
-  stiffness: 120,
+  stiffness: 200,
 };
 
 const gameSettings = (state = initialState, action) => {

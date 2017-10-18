@@ -11,8 +11,8 @@ import Select from '../../components/Select';
 
 const stiffnessOptions = [
   { label: "I don't need a spring", value: 1 },
-  { label: 'Like your mom', value: 50 },
-  { label: 'Average Joe', value: 120 },
+  { label: 'Like your mom', value: 100 },
+  { label: 'Average Joe', value: 200 },
   { label: 'Like your neck', value: 300 },
   { label: 'Like my ...', value: 400 },
   { label: 'Carbyne', value: 1000 },
