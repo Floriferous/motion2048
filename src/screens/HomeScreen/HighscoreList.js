@@ -28,14 +28,19 @@ const HighscoreList = ({ highscore, onlineHighscores }) => {
       <h3 style={{ marginTop: 0, marginBottom: 8 }}>Highscores</h3>
       <hr style={{ width: '100%' }} />
       <div style={styles.lists}>
-        {highscore.length > 0 && (
-          <LocalHighscores highscores={sortedHighscores} />
-        )}
-
         <QueryDisplayer queryItems={onlineHighscores}>
           <OnlineHighscores
             onlineHighscores={onlineHighscores}
             bestScore={sortedHighscores[0]}
+            startAt={0}
+          />
+        </QueryDisplayer>
+        <QueryDisplayer queryItems={onlineHighscores}>
+          <OnlineHighscores
+            onlineHighscores={onlineHighscores}
+            bestScore={sortedHighscores[0]}
+            startAt={20}
+            showBest
           />
         </QueryDisplayer>
       </div>

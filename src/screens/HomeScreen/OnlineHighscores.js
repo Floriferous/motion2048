@@ -16,7 +16,12 @@ const styles = {
   },
 };
 
-const OnlineHighscores = ({ onlineHighscores, bestScore }) => {
+const OnlineHighscores = ({
+  onlineHighscores,
+  bestScore,
+  startAt,
+  showBest,
+}) => {
   const sortedHighscores = [
     ...onlineHighscores,
     {
@@ -32,13 +37,15 @@ const OnlineHighscores = ({ onlineHighscores, bestScore }) => {
 
   return (
     <div style={styles.div}>
-      <h4 style={{ margin: 0, marginTop: 8 }}>Global highscores</h4>
-      <ol style={styles.list}>
+      <ol style={styles.list} start={`${startAt + 1}`}>
         {sortedHighscores
-          .slice(0, 20)
+          .slice(startAt, startAt + 20)
           .map(score => <HighscoreItem key={score.id} {...score} />)}
       </ol>
-      {bestIndex > 20 && <BestScore position={bestIndex} score={bestScore} />}
+      {showBest &&
+        bestIndex > startAt + 20 && (
+          <BestScore position={bestIndex} score={bestScore} />
+        )}
     </div>
   );
 };
@@ -46,10 +53,13 @@ const OnlineHighscores = ({ onlineHighscores, bestScore }) => {
 OnlineHighscores.propTypes = {
   onlineHighscores: PropTypes.arrayOf(PropTypes.object).isRequired,
   bestScore: PropTypes.objectOf(PropTypes.any),
+  startAt: PropTypes.number.isRequired,
+  showBest: PropTypes.bool,
 };
 
 OnlineHighscores.defaultProps = {
   bestScore: undefined,
+  showBest: undefined,
 };
 
 export default OnlineHighscores;
