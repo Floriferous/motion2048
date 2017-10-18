@@ -25,7 +25,6 @@ const Box = ({
   value,
   gameWidth,
   gameHeight,
-  boxSize,
   stiffness,
   damping,
 }) => (
@@ -46,7 +45,7 @@ const Box = ({
           left: motionValues.left,
         }}
       >
-        <h2 style={{ margin: 0, fontSize: boxSize / 4 }}>
+        <h2 style={{ margin: 0, fontSize: style.width / 4 }}>
           {Math.round(motionValues.value)}
         </h2>
       </div>
