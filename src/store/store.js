@@ -17,15 +17,27 @@ firebase.initializeApp(firebaseConfig); // initialize firebase instance
 
 const reduxFirebaseConfig = { userProfile: 'users' };
 
-// Create store with reducers and initial state
+let store;
 const initialState = {};
-const store = createStore(
-  rootReducer,
-  initialState,
-  compose(reactReduxFirebase(firebase, reduxFirebaseConfig),
-    // window.__REDUX_DEVTOOLS_EXTENSION__ &&
-    //   window.__REDUX_DEVTOOLS_EXTENSION__(),
-  ),
-);
+
+if (process.env.NODE_ENV !== 'production') {
+  store = createStore(
+    rootReducer,
+    initialState,
+    compose(
+      reactReduxFirebase(firebase, reduxFirebaseConfig),
+      window.__REDUX_DEVTOOLS_EXTENSION__ &&
+        window.__REDUX_DEVTOOLS_EXTENSION__(),
+    ),
+  );
+} else {
+  store = createStore(
+    rootReducer,
+    initialState,
+    compose(reactReduxFirebase(firebase, reduxFirebaseConfig)),
+  );
+}
+
+// Create store with reducers and initial state
 
 export default store;
