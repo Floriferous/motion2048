@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import moment from 'moment';
 
 import QueryDisplayer from '../../components/QueryDisplayer';
 import OnlineHighscores from './OnlineHighscores';
@@ -23,9 +24,17 @@ const styles = {
 
 const HighscoreList = ({ highscore, onlineHighscores }) => {
   const sortedHighscores = highscore.sort((a, b) => b.score - a.score);
+  const lastHighscoreTime =
+    onlineHighscores &&
+    Math.max(...onlineHighscores.map(score => new Date(score.createdAt).getTime()));
+
   return (
     <div style={styles.div} className="animated jackInTheBox highscore">
-      <h3 style={{ marginTop: 0, marginBottom: 8 }}>Highscores</h3>
+      <h3 style={{ marginTop: 0, marginBottom: 8 }}>Highscores </h3>
+      <p style={{ opacity: 0.6, margin: 0, marginBottom: 8 }}>
+        {!!lastHighscoreTime &&
+          `Last score submitted ${moment(lastHighscoreTime).fromNow()}`}
+      </p>
       <hr style={{ width: '100%' }} />
       <div style={styles.lists}>
         <QueryDisplayer queryItems={onlineHighscores}>
