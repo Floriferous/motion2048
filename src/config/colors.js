@@ -19,6 +19,7 @@ const colorArray = [
   'linear-gradient(to right, #e65c00, #f9d423)', // 102400
   'linear-gradient(to right, #1488cc, #2b32b2)', // 204800
   'linear-gradient(red, yellow, lime, aqua, blue, magenta, red)', // 409600
+  "url('/rickroll.gif')",
 ];
 
 const getBoxColors = () => {
