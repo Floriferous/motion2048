@@ -1,7 +1,8 @@
-import { createStore, compose } from 'redux';
-import { reactReduxFirebase } from 'react-redux-firebase';
 import * as firebase from 'firebase';
 
+import { compose, createStore } from 'redux';
+
+import { reactReduxFirebase } from 'react-redux-firebase';
 import rootReducer from '../reducers';
 
 const firebaseConfig = {
@@ -26,8 +27,8 @@ if (process.env.NODE_ENV !== 'production') {
     initialState,
     compose(
       reactReduxFirebase(firebase, reduxFirebaseConfig),
-      window.__REDUX_DEVTOOLS_EXTENSION__ &&
-        window.__REDUX_DEVTOOLS_EXTENSION__(),
+      // window.__REDUX_DEVTOOLS_EXTENSION__ &&
+      //   window.__REDUX_DEVTOOLS_EXTENSION__(),
     ),
   );
 } else {
